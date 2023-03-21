@@ -6,21 +6,19 @@ export const getCardList = async () => {
     }
   })
     .then((response) => response.json())
-    .catch((err) => {
-      console.error(err)
+    .catch(() => {
       return []
     })
   const mapCard = cardList.restaurants
   mapCard.forEach(card => {
-    console.log(card.pictureId)
     document.querySelector('.cardList').innerHTML +=
     `
       <div class="cardMain">
         <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${card.pictureId}" class="lazyload" />
         <div class="cardContent">
           <div class="topCard">
-            <h4>${card.city}</h4>
-            <h4>Rating: ${card.rating}</h4>
+            <h4><i class="fa-sharp fa-solid fa-location-dot"></i>${card.city}</h4>
+            <h4><i class="fa-solid fa-star"></i>${card.rating}</h4>
           </div>
           <h4>${card.name}</h4>
           <p>${card.description}</p>
@@ -28,5 +26,4 @@ export const getCardList = async () => {
       </div>
     `
   })
-  console.log(mapCard)
 }

@@ -19,10 +19,17 @@ class NavBar extends LitElement {
     color: #00ADB5;
     font-family: Brush Script MT, cursive;
   }
-  :host > ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  @media (min-width: 768px) {
+    :host > ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  @media (max-width: 768px) {
+    :host > ul {
+      display: none;
+    }
   }
   :host > ul > li {
     width: 100px;
@@ -30,13 +37,17 @@ class NavBar extends LitElement {
   }
   :host > ul > li > a {
     color: white;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
   }
   :host > ul > li > a:hover {
     color: #00ADB5;
   }
   `
   static properties = {
-    name: {}
+    name: { type: String }
   }
 
   constructor () {
@@ -51,7 +62,7 @@ class NavBar extends LitElement {
     </a>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/favorites.html">Favorite</a></li>
+        <li><a href="#">Favorite</a></li>
         <li>
             <a href="https://github.com/thelastman112" target="_blank" rel="noopener">About Us</a>
         </li>

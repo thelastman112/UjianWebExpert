@@ -1,4 +1,5 @@
 import { getCardList } from '../component/cardList'
+import '../../styles/scss/footer.scss'
 
 const main = () => {
   fetch()

@@ -40,13 +40,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(sc|c)ss$/,
         use: [
           {
             loader: 'style-loader'
           },
           {
             loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
           }
         ]
       }
@@ -55,7 +58,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve('src/templates/index.html')
+      template: path.resolve('src/templates/index.html'),
+      minify: true
     }),
     new CopyWebpackPlugin({
       patterns: [
