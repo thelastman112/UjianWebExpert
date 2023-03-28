@@ -12,7 +12,7 @@ class ButtonBars extends LitElement {
         display: none;
         align-self: center;
         position: absolute;
-        top: 0;
+        top: 5px;
         right: 0;
     }
     @media (max-width: 768px) {
@@ -33,6 +33,8 @@ class ButtonBars extends LitElement {
         cursor: pointer;
         display: flex;
         padding: 0;
+        min-width: 44px;
+        min-height: 44px;
       }
       .line {
         fill: none;

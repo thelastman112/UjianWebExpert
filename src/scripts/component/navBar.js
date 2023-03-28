@@ -5,7 +5,6 @@ class NavBar extends LitElement {
   static styles = css`
   * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
@@ -22,6 +21,7 @@ class NavBar extends LitElement {
     display: flex;
   }
   :host > a > h1 {
+    padding: 10px;
     font-size: 40px;
     color: #00ADB5;
     font-family: Brush Script MT, cursive;
@@ -44,7 +44,7 @@ class NavBar extends LitElement {
   }
   @media (max-width: 768px) {
     :host {
-      height: 50px;
+      height: 60px;
     }
     :host > a {
       display: block;
@@ -54,9 +54,12 @@ class NavBar extends LitElement {
       justify-content: center;
       width: 100%;
       opacity: 0%;
-      height: 50px;
+      height: 60px;
       margin: 0;
       display: none;
+    }
+    :host > a > h1 {
+      padding: 5px;
     }
   }
   @media (min-width: 768px) {
@@ -100,8 +103,6 @@ class NavBar extends LitElement {
 
   connectedCallback () {
     super.connectedCallback()
-    this.nextelement = this.parentElement.querySelectorAll('nav')[1]
-    console.log(this.nextelement)
   }
 
   disconnectedCallback () {
@@ -114,7 +115,6 @@ class NavBar extends LitElement {
     const ul = this.shadowRoot.querySelector('ul')
     const navbar = this.shadowRoot.getRootNode().host
     if (this.open) {
-      console.log('open')
       ul.style.display = 'flex'
       ul.animate([{
         opacity: 0,
@@ -127,7 +127,7 @@ class NavBar extends LitElement {
         fill: 'forwards'
       })
       navbar.animate([
-        { height: '50px' },
+        { height: '60px' },
         { height: '100px' }
       ], {
         duration: 400,
@@ -135,7 +135,6 @@ class NavBar extends LitElement {
         fill: 'forwards'
       })
     } else {
-      console.log('closed')
       ul.animate([{
         opacity: 1,
         transform: 'translateY(100%)'
@@ -148,7 +147,7 @@ class NavBar extends LitElement {
       })
       navbar.animate([
         { height: '100px' },
-        { height: '50px' }
+        { height: '60px' }
       ], {
         duration: 400,
         easing: 'ease-in-out',

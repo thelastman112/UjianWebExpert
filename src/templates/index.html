@@ -15,9 +15,20 @@
     <script src="https://kit.fontawesome.com/120c92f19a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <nav>
+    <section id="tabbedContent" class="helper" tabindex="0">
+      <h1>
+          This is a helper if you are using a screen reader. Press tab to go to navigation of helper.
+      </h1>
+      <a href="#nav">Skip to navigation</a>
+      <a href="#onboarding">Skip to jumbotron</a>
+      <a href="#maincontent">Skip to main content</a>
+      <a href="#footer">Skip to footer</a>
+      <a href="#tabbedContent">Repeat this helper</a>
+    </section>
+    <header id="header" tabindex="0">
+      <nav id="nav">
         <nav-bar></nav-bar>
+        <a href="#tabbedContent" class="helper">Press enter to main helper or next to the head of content</a>
       </nav>
     </header>
     <main>
@@ -32,14 +43,15 @@
           </article>
         </div>
       </section>
-      <section >
-        <h1 tabindex="0">Find Your Restaurant</h1>
-        <div class="cardList">
-        </div>
+      <section id="maincontent">
+        <h1 tabindex="0">Find    Restaurant</h1>
+        <div class="cardList"></div>
+        <a href="#tabbedContent" class="helper">Press enter to main helper or next to the main content</a>
       </section>
     </main>
-    <footer>
+    <footer id="footer">
       <h4 tabindex="0">Copyright &copy; 2023 - Pangananku</h4>
+      <a href="#tabbedContent" class="helper">Press enter to main helper or next to the main content</a>
     </footer>
   </body>
 </html>

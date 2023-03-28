@@ -6,7 +6,8 @@ export const getCardList = async () => {
     }
   })
     .then((response) => response.json())
-    .catch(() => {
+    .catch((err) => {
+      console.err(err)
       return []
     })
   const mapCard = cardList.restaurants
@@ -17,11 +18,11 @@ export const getCardList = async () => {
         <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${card.pictureId}" class="lazyload" />
         <div class="cardContent">
           <div class="topCard">
-            <h4><i class="fa-sharp fa-solid fa-location-dot"></i>${card.city}</h4>
-            <h4><i class="fa-solid fa-star"></i>${card.rating}</h4>
+            <h4 tabindex="0"><i class="fa-sharp fa-solid fa-location-dot"></i>${card.city}</h4>
+            <h4 tabindex="0"><i class="fa-solid fa-star"></i>${card.rating}</h4>
           </div>
-          <h4>${card.name}</h4>
-          <p>${card.description}</p>
+          <h4 tabindex="0">${card.name}</h4>
+          <p tabindex="0">${card.description}</p>
         </div>
       </div>
     `

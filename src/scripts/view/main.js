@@ -1,5 +1,6 @@
 import { getCardList } from '../component/cardList'
 import { imageTransition } from '../imageInterval'
+import '../tabbedContent'
 import '../../styles/scss/body.scss'
 import '../../styles/scss/footer.scss'
 

@@ -1,6 +1,21 @@
   main {
     margin-top: 25px;
   }
+  .helper {
+    position: fixed;
+    left: 0;
+    background-color: #bf1722;
+    color: #fff;
+    padding: 8px;
+    z-index: 1000;
+    display: flex;
+    top: -100%;
+    flex-direction: column;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+  }
   header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7)
   }
@@ -11,13 +26,13 @@
   }
   main > section#onboarding > div {
     height: inherit;
-    width: calc(100vw - 500px);
+    width: calc(99vw - 500px);
     min-width: 1000px;
   }
   @media (max-width: 1200px) {
     main > section#onboarding > div {
       height: inherit;
-      width: 100vw;
+      width: 99vw;
       min-width: 0;
     }
   }
@@ -26,7 +41,7 @@
     height: inherit;
     object-fit: cover;
     overflow: hidden;
-    width: calc(100vw - 500px);
+    width: calc(99vw - 500px);
     min-width: inherit;
     z-index: -1;
   }
@@ -49,7 +64,7 @@
   @media (max-width: 1200px){
     main > section#onboarding > div > picture > img {
       height: inherit;
-      width: 100vw;
+      width: 99vw;
       object-fit: cover;
       min-width: 0;
     }
@@ -76,7 +91,7 @@
     color: #EEEEEE;
   }
   main > section {
-    width: 100vw;
+    width: 99vw;
   }
   main > section > h1 {
     text-align: center;
@@ -156,4 +171,8 @@
     height: 200px;
     width: 100%;
     object-fit: cover;
+  }
+  section#map {
+    width: 500px;
+    height: 500px;
   }
