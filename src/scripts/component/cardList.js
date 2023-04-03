@@ -6,8 +6,7 @@ export const getCardList = async () => {
     }
   })
     .then((response) => response.json())
-    .catch((err) => {
-      console.err(err)
+    .catch(() => {
       return []
     })
   const mapCard = cardList.restaurants
@@ -23,6 +22,9 @@ export const getCardList = async () => {
           </div>
           <h4 tabindex="0">${card.name}</h4>
           <p tabindex="0">${card.description}</p>
+        </div>
+        <div id="buttonDiv">
+          <button id="detailButton" data-id="${card.id}">More Detail...</button>
         </div>
       </div>
     `

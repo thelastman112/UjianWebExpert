@@ -27,9 +27,19 @@
     </section>
     <header id="header" tabindex="0">
       <nav id="nav">
-        <nav-bar></nav-bar>
-        <a href="#tabbedContent" class="helper">Press enter to main helper or next to the head of content</a>
+        <a href="/" class="brand">
+          <h1>Pangananku</h1>
+        </a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Favorite</a></li>
+            <li>
+                <a href="https://github.com/thelastman112" target="_blank" rel="noopener">About Us</a>
+            </li>
+        </ul>
+        <button-bars></button-bars>
       </nav>
+      <a href="#tabbedContent" class="helper">Press enter to main helper or next to the head of content</a>
     </header>
     <main>
       <section id="onboarding">
@@ -44,14 +54,13 @@
         </div>
       </section>
       <section id="maincontent">
-        <h1 tabindex="0">Find    Restaurant</h1>
+        <h1 tabindex="0">Find Restaurant</h1>
         <div class="cardList"></div>
+        <div class="modal"></div>
         <a href="#tabbedContent" class="helper">Press enter to main helper or next to the main content</a>
       </section>
-    </main>
-    <footer id="footer">
-      <h4 tabindex="0">Copyright &copy; 2023 - Pangananku</h4>
+      <footer-comp></footer-comp>
       <a href="#tabbedContent" class="helper">Press enter to main helper or next to the main content</a>
-    </footer>
+    </main>
   </body>
 </html>

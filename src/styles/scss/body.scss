@@ -11,13 +11,80 @@
     display: flex;
     top: -100%;
     flex-direction: column;
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+    
+  }
+  .helper > a {
+    text-decoration: none;
+    color: inherit;
   }
   header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7)
+  }
+  nav {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: #222831;
+    overflow-y: hidden;
+  }
+  nav > a {
+    display: flex;
+  }
+  nav > a > h1 {
+    padding: 10px;
+    font-size: 40px;
+    color: #00ADB5;
+    font-family: Brush Script MT, cursive;
+    align-self: center;
+  }
+  nav > ul > li {
+    width: 100px;
+    text-align: center;
+    align-self: center;
+  }
+  nav > ul > li > a {
+    color: white;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+  }
+  nav > ul > li > a:hover {
+    color: #00ADB5;
+  }
+  @media (max-width: 768px) {
+    nav {
+      height: 60px;
+    }
+    nav > a {
+      display: block;
+    }
+    nav > ul {
+      position: absolute;
+      justify-content: center;
+      width: 100%;
+      opacity: 0%;
+      height: 60px;
+      margin: 0;
+      display: none;
+    }
+    nav > a > h1 {
+      padding: 5px;
+    }
+    buttonbars {
+      display: block;
+    }
+  }
+  @media (min-width: 768px) {
+    nav > ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+    }
+    buttonbars {
+      display: none;
+    }
   }
   main > section#onboarding {
     height: 400px;
@@ -98,6 +165,9 @@
     padding: 16px 0;
     color: #00ADB5;
   }
+  #mainContent {
+    margin-bottom: 10px;
+  }
   .cardList {
     position: relative;
     display: grid;
@@ -172,7 +242,21 @@
     width: 100%;
     object-fit: cover;
   }
-  section#map {
-    width: 500px;
-    height: 500px;
+  .cardMain > div#buttonDiv {
+    height: max-content;
+    text-align: right;
+    padding: 16px;
+  }
+  #detailButton {
+    border-radius: 10px;
+    background-color: #ffd369;
+    padding: 8px;
+    border: none;
+    font-weight: bolder;
+    min-height: 44px;
+    min-width: 44px;
+  }
+  #detailButton:hover {
+    background-color: #d4a842 ;
+    cursor: pointer;
   }
