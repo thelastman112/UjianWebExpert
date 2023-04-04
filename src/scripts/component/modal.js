@@ -1,4 +1,22 @@
 export const modal = async () => {
+  const modal = document.querySelector('.modaldiv')
+  const btnDetail = document.querySelectorAll('#detailButton')
+  const close = document.querySelector('.close')
+  btnDetail.forEach(e => {
+    e.addEventListener('click', () => {
+      modal.style.display = 'block'
+      const id = e.getAttribute('data-id')
+      console.log(id)
+    })
+  })
+  close.addEventListener('click', () => {
+    modal.style.display = 'none'
+  })
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none'
+    }
+  })
   const detailFetch = await fetch('/DETAIL.json', {
     headers: {
       Accept: 'application/json'
@@ -14,29 +32,27 @@ export const modal = async () => {
       `
       <div class="modaldiv">
         <div class="modal-content">
-        <button class="close">&times;</button>
-          <div class="class-body">    
-            <h3>${event.address}</h3>
-            <p>${event.menu}</p>
+        <div data-id=${event.id}></div>          
+          <div class="modal-header">
+            <h3>Restaurant Menu</h3>
+            <button class="close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Alamat</td>
+                  <td>${event.address}</td>
+                </tr>
+                <tr>
+                  <td>Menu</td>
+                  <td>${event.menu}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
       `
-  })
-  const modal = document.querySelector('.modaldiv')
-  const btnDetail = document.querySelectorAll('#detailButton')
-  const close = document.querySelector('.close')
-  btnDetail.forEach(e => {
-    e.addEventListener('click', () => {
-      modal.style.display = 'block'
-    })
-  })
-  close.addEventListener('click', () => {
-    modal.style.display = 'none'
-  })
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none'
-    }
   })
 }

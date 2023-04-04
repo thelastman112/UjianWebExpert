@@ -10,12 +10,27 @@
     background-color: rgba(0,0,0,0.7);
   }
   .modal-content {
+    color: white;
     display: flex;
-    background-color: #fefefe;
+    flex-direction: column;
+    background-color: #222831;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+  }
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .modal-body {
+    padding: 16px;
+  }
+  .modal-body > h3 {
+    margin-bottom: 4px;
+  }
+  .modal-body > table > tbody > tr > td {
+    padding: 10px;
   }
   button {
     align-items: left;
