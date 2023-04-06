@@ -1,3 +1,5 @@
+  @import './navbar.scss';
+  @import './media-query.scss';
   main {
     margin-top: 25px;
   }
@@ -17,75 +19,6 @@
     text-decoration: none;
     color: inherit;
   }
-  header {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7)
-  }
-  nav {
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    background-color: #222831;
-    overflow-y: hidden;
-  }
-  nav > a {
-    display: flex;
-  }
-  nav > a > h1 {
-    padding: 10px;
-    font-size: 40px;
-    color: #00ADB5;
-    font-family: Brush Script MT, cursive;
-    align-self: center;
-  }
-  nav > ul > li {
-    width: 100px;
-    text-align: center;
-    align-self: center;
-  }
-  nav > ul > li > a {
-    color: white;
-    min-width: 44px;
-    min-height: 44px;
-    width: 44px;
-    height: 44px;
-  }
-  nav > ul > li > a:hover {
-    color: #00ADB5;
-  }
-  @media (max-width: 768px) {
-    nav {
-      height: 60px;
-    }
-    nav > a {
-      display: block;
-    }
-    nav > ul {
-      position: absolute;
-      justify-content: center;
-      width: 100%;
-      opacity: 0%;
-      height: 60px;
-      margin: 0;
-      display: none;
-    }
-    nav > a > h1 {
-      padding: 5px;
-    }
-    buttonbars {
-      display: block;
-    }
-  }
-  @media (min-width: 768px) {
-    nav > ul {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      position: relative;
-    }
-    buttonbars {
-      display: none;
-    }
-  }
   main > section#onboarding {
     height: 400px;
     display: flex;
@@ -96,13 +29,7 @@
     width: calc(99vw - 500px);
     min-width: 1000px;
   }
-  @media (max-width: 1200px) {
-    main > section#onboarding > div {
-      height: inherit;
-      width: 99vw;
-      min-width: 0;
-    }
-  }
+ 
   main > section#onboarding > div > picture {
     position: absolute;
     height: inherit;
@@ -112,30 +39,14 @@
     min-width: inherit;
     z-index: -1;
   }
-  @media (max-width: 1200px) {
-    main > section#onboarding > div > picture {
-      position: absolute;
-      height: inherit;
-      object-fit: cover;
-      overflow: hidden;
-      width: 100%;
-      min-width: 0;
-    }
-  }
+  
   main > section#onboarding > div > picture > img {
     height: inherit;
     width: inherit;
     min-width: inherit;
     object-fit: cover;
   }
-  @media (max-width: 1200px){
-    main > section#onboarding > div > picture > img {
-      height: inherit;
-      width: 99vw;
-      object-fit: cover;
-      min-width: 0;
-    }
-  }
+  
   main > section#onboarding > div > article {
     display: flex;
     align-items: center;
@@ -178,30 +89,7 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
-  @media (max-width: 1024px) {
-    .cardList {
-      position: relative;
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: 50%;
-      gap: 8px;
-      padding:8px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-    }
-  }
-  @media (max-width: 540px) {
-    .cardList {
-      position: relative;
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: 100%;
-      gap: 8px;
-      padding:8px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-    }
-  }
+  
   .cardMain {
     height: auto;
     background-color: #393E46;

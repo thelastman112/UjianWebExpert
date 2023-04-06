@@ -72,7 +72,7 @@ module.exports = {
     new ImageminPlugin({
       plugins: [
         imageminMozjpeg({
-          quality: 50,
+          quality: 10,
           progressive: true
         })
       ]

@@ -1,0 +1,36 @@
+header {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7)
+  }
+  nav {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: #222831;
+    overflow-y: hidden;
+  }
+  nav > a {
+    display: flex;
+  }
+  nav > a > h1 {
+    padding: 10px;
+    font-size: 40px;
+    color: #00ADB5;
+    font-family: Brush Script MT, cursive;
+    align-self: center;
+  }
+  nav > ul > li {
+    width: 100px;
+    text-align: center;
+    align-self: center;
+  }
+  nav > ul > li > a {
+    color: white;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+  }
+  nav > ul > li > a:hover {
+    color: #00ADB5;
+  }
+  @import './media-query.scss'

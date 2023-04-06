@@ -1,0 +1,79 @@
+@media (max-width: 768px) {
+    nav {
+      height: 60px;
+    }
+    nav > a {
+      display: block;
+    }
+    nav > ul {
+      position: absolute;
+      justify-content: center;
+      width: 100%;
+      opacity: 0%;
+      height: 60px;
+      margin: 0;
+      display: none;
+    }
+    nav > a > h1 {
+      padding: 5px;
+    }
+    buttonbars {
+      display: block;
+    }
+  }
+  @media (min-width: 768px) {
+    nav > ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+    }
+    buttonbars {
+      display: none;
+    }
+  }
+  @media (max-width: 1200px) {
+    main > section#onboarding > div {
+      height: inherit;
+      width: 99vw;
+      min-width: 0;
+    }
+    main > section#onboarding > div > picture {
+      position: absolute;
+      height: inherit;
+      object-fit: cover;
+      overflow: hidden;
+      width: 100%;
+      min-width: 0;
+    }
+    main > section#onboarding > div > picture > img {
+      height: inherit;
+      width: 99vw;
+      object-fit: cover;
+      min-width: 0;
+    }
+  }
+  @media (max-width: 1024px) {
+    .cardList {
+      position: relative;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 50%;
+      gap: 8px;
+      padding:8px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+  }
+  @media (max-width: 540px) {
+    .cardList {
+      position: relative;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
+      gap: 8px;
+      padding:8px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+  }
