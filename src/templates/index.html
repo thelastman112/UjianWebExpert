@@ -27,19 +27,19 @@
     </section>
     <header id="header" tabindex="0">
       <nav id="nav" class="nav">
-        <a href="/" class="brand">
+        <a href="/" class="brand" tabindex="0">
           <h1>Pangananku</h1>
         </a>
-        <ul>
+        <button-bars id="buttonbars" tabindex="0"></button-bars>
+        <ul id="ulnav">
             <li><a href="/">Home</a></li>
-            <li><a href="#">Favorite</a></li>
+            <li><a href="#maincontent">Favorite</a></li>
             <li>
                 <a href="https://github.com/thelastman112" target="_blank" rel="noopener">About Us</a>
             </li>
         </ul>
-        <button-bars id="buttonbars"></button-bars>
+        <a href="#tabbedContent" class="helper">Press enter to main helper or next to the head of content</a>
       </nav>
-      <a href="#tabbedContent" class="helper">Press enter to main helper or next to the head of content</a>
     </header>
     <main>
       <section id="onboarding">

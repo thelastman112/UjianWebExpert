@@ -8,10 +8,8 @@ export const modal = async () => {
     .catch(() => {
       return []
     })
-  let id
   const mapDetail = detailFetch.restaurants
   mapDetail.forEach(event => {
-    console.log(event.id)
     document.querySelector('.modal').innerHTML =
         `
         <div class="modaldiv">
@@ -45,8 +43,7 @@ export const modal = async () => {
   btnDetail.forEach(e => {
     e.addEventListener('click', () => {
       modal.style.display = 'block'
-      id = e.getAttribute('data-id')
-      console.log(id)
+      const id = e.getAttribute('data-id')
     })
   })
   close.addEventListener('click', () => {

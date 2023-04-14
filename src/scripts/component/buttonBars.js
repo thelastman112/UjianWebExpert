@@ -18,6 +18,7 @@ class ButtonBars extends LitElement {
     @media (max-width: 768px) {
         :host {
             display: flex;
+            z-index: 100;
         }
     }
     body {

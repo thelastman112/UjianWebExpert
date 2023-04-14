@@ -1,24 +1,44 @@
 @media (max-width: 768px) {
     nav {
       height: 60px;
+      position: fixed;
+      width: 100%;
+      transition: 0.4s;
+      top: 0;
     }
     nav > a {
       display: block;
     }
     nav > ul {
-      position: absolute;
-      justify-content: center;
-      width: 100%;
-      opacity: 0%;
-      height: 60px;
-      margin: 0;
       display: none;
     }
     nav > a > h1 {
-      padding: 5px;
+      padding: 5px; 
     }
     buttonbars {
       display: block;
+    }
+    .nav > ul {
+      float: none;
+      display: flex;
+      text-align: left;
+      flex-direction: column;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.8);;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    .nav.resp > ul  {
+      width: 150px;
+    }
+    .nav > ul > li ,.nav.resp > ul > li {
+      padding: 20px 0;
     }
   }
   @media (min-width: 768px) {
@@ -55,25 +75,11 @@
   }
   @media (max-width: 1024px) {
     .cardList {
-      position: relative;
-      display: grid;
-      grid-auto-flow: column;
       grid-auto-columns: 50%;
-      gap: 8px;
-      padding:8px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
     }
   }
   @media (max-width: 540px) {
     .cardList {
-      position: relative;
-      display: grid;
-      grid-auto-flow: column;
       grid-auto-columns: 100%;
-      gap: 8px;
-      padding:8px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
     }
   }

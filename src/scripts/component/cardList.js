@@ -13,7 +13,7 @@ export const getCardList = async () => {
   mapCard.forEach(card => {
     document.querySelector('.cardList').innerHTML +=
     `
-      <div class="cardMain">
+      <div class="cardMain" tabindex="0">
         <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${card.pictureId}" class="lazyload" />
         <div class="cardContent">
           <div class="topCard">

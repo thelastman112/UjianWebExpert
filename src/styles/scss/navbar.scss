@@ -29,8 +29,8 @@ header {
     min-height: 44px;
     width: 44px;
     height: 44px;
+    // font-size: 44px;
   }
   nav > ul > li > a:hover {
     color: #00ADB5;
   }
-  @import './media-query.scss'
