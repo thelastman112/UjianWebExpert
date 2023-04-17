@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/120c92f19a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <section id="tabbedContent" class="helper" tabindex="0">
+    <section id="tabbedContent" class="helper">
       <h1>
           This is a helper if you are using a screen reader. Press tab to go to navigation of helper.
       </h1>
@@ -23,14 +23,13 @@
       <a href="#onboarding">Skip to jumbotron</a>
       <a href="#maincontent">Skip to main content</a>
       <a href="#footer">Skip to footer</a>
-      <a href="#tabbedContent">Repeat this helper</a>
     </section>
-    <header id="header" tabindex="0">
+    <header id="header">
       <nav id="nav" class="nav">
         <a href="/" class="brand" tabindex="0">
           <h1>Pangananku</h1>
         </a>
-        <button-bars id="buttonbars" tabindex="0"></button-bars>
+        <button-bars id="buttonbars"></button-bars>
         <ul id="ulnav">
             <li><a href="/">Home</a></li>
             <li><a href="#maincontent">Favorite</a></li>
@@ -38,7 +37,6 @@
                 <a href="https://github.com/thelastman112" target="_blank" rel="noopener">About Us</a>
             </li>
         </ul>
-        <a href="#tabbedContent" class="helper">Press enter to main helper or next to the head of content</a>
       </nav>
     </header>
     <main>
@@ -51,16 +49,16 @@
             <h2 tabindex="0">Pangananku</h2>
             <p tabindex="0">Pangananku, Place to eat</p>
           </article>
+          <a href="#tabbedContent" class="helper">Press enter to main helper or next content</a>
         </div>
       </section>
       <section id="maincontent">
         <h1 tabindex="0">Find Restaurant</h1>
         <div class="cardList"></div>
         <div class="modal"></div>
-        <a href="#tabbedContent" class="helper">Press enter to main helper or next to the main content</a>
       </section>
-      <footer-comp></footer-comp>
-      <a href="#tabbedContent" class="helper">Press enter to main helper or next to the main content</a>
+      <footer-comp id="footer"></footer-comp>
+      <a href="#tabbedContent" class="helper">Press enter to main helper or next content</a>
     </main>
   </body>
 </html>

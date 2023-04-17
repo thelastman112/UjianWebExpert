@@ -16,7 +16,7 @@ class Footer extends LitElement {
     `
   render () {
     return html`
-    <footer id="footer">
+    <footer>
         <h4 tabindex="0">Copyright &copy; 2023 - Pangananku</h4>
     </footer>
     `
