@@ -15,7 +15,7 @@
     nav > a > h1 {
       padding: 5px; 
     }
-    buttonbars {
+    button-bars {
       display: block;
     }
     .nav > ul {
@@ -29,7 +29,7 @@
       z-index: 1;
       top: 0;
       right: 0;
-      background-color: rgba(0, 0, 0, 0.8);;
+      background-color: rgba(0, 0, 0, 0.8);
       overflow-x: hidden;
       transition: 0.5s;
       padding-top: 60px;
@@ -47,6 +47,9 @@
       flex-direction: row;
       align-items: center;
       position: relative;
+      justify-content: space-around;
+      min-width: 300px;
+      width: 20vw;
     }
     buttonbars {
       display: none;
