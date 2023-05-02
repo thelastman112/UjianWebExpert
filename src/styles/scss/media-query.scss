@@ -41,15 +41,15 @@
       padding: 20px 0;
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     nav > ul {
+      transition: 0s;
       display: flex;
       flex-direction: row;
       align-items: center;
       position: relative;
       justify-content: space-around;
       min-width: 300px;
-      width: 20vw;
     }
     buttonbars {
       display: none;
