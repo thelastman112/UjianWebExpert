@@ -1,6 +1,7 @@
 import 'lazysizes'
+import CONFIG from '../config'
 export const getCardList = async () => {
-  const cardList = await fetch('/DATA.json', {
+  const cardList = await fetch(`${CONFIG.API_URL}/list`, {
     headers: {
       Accept: 'application/json'
     }
@@ -10,6 +11,16 @@ export const getCardList = async () => {
       return []
     })
   const mapCard = cardList.restaurants
+  const dataId = mapCard.map((id) => id.pictureId)
+  const imageList = await fetch(`${CONFIG.URL_IMAGE_MEDIUM}/${dataId}`, {
+    headers: {
+      Accept: 'application/json'
+    }
+  })
+    .then((response) => response.json())
+    .catch(() => {
+      return []
+    })
   mapCard.forEach(card => {
     document.querySelector('.cardList').innerHTML +=
     `
