@@ -1,49 +1,40 @@
+import CONFIG from '../config'
 export const modal = async () => {
-  const detailFetch = await fetch('/DETAIL.json', {
-    headers: {
-      Accept: 'application/json'
-    }
-  })
-    .then((response) => response.json())
-    .catch(() => {
-      return []
-    })
-  const mapDetail = detailFetch.restaurants
-  mapDetail.forEach(event => {
-    document.querySelector('.modal').innerHTML =
-        `
-        <div class="modaldiv">
-          <div class="modal-content">
-          <div data-id=${event.id}></div>          
-            <div class="modal-header">
-              <h3>Restaurant Menu</h3>
-              <button class="close">&times;</button>
-            </div>
-            <div class="modal-body">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Alamat</td>
-                    <td>${event.address}</td>
-                  </tr>
-                  <tr>
-                    <td>Menu</td>
-                    <td>${event.menu}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+  const modalStructure =
+  `
+  <div class="modaldiv">
+    <div class="modal-content">
+      <div data-id="id"></div>          
+        <div class="modal-header">
+          <h3>Restaurant Menu</h3>
+          <button class="close">&times;</button>
         </div>
-        `
-  })
-  const modal = document.querySelector('.modaldiv')
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <td>Alamat</td>
+              <td>address</td>
+            </tr>
+            <tr>
+              <td>Menu</td>
+              <td>menu</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  `
+  document.querySelector('.modal').innerHTML = modalStructure
   const btnDetail = document.querySelectorAll('#detailButton')
+  const modal = document.querySelector('.modaldiv')
   const close = document.querySelector('.close')
+  let id = []
   btnDetail.forEach(e => {
     e.addEventListener('click', () => {
+      id = e.getAttribute('data-id')
       modal.style.display = 'block'
-      const id = e.getAttribute('data-id')
     })
   })
   close.addEventListener('click', () => {
@@ -54,4 +45,13 @@ export const modal = async () => {
       modal.style.display = 'none'
     }
   })
+  const detailFetch = await fetch(`${CONFIG.API_URL}/detail/:${id}`, {
+    headers: {
+      Accept: 'application/json'
+    }
+  })
+    .then((response) => response.json())
+    .catch(() => {
+      return []
+    })
 }

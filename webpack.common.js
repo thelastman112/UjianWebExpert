@@ -61,6 +61,11 @@ module.exports = {
       template: path.resolve('src/templates/index.html'),
       minify: true
     }),
+    new HtmlWebpackPlugin({
+      filename: 'restaurantdetail.html',
+      template: path.resolve('src/templates/restaurantdetail.html'),
+      minify: true
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
