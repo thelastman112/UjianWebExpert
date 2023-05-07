@@ -39,3 +39,16 @@
   .class-body {
     text-align: left;
   }
+  .bordered {
+    border-style: outset;
+    border-color: blue !important;
+  }
+  .bordered > td {
+    vertical-align: baseline;
+  }
+  .temp{
+    padding-left: 16px;
+  }
+  .ul1, .ul2 {
+    padding: 10px;
+  }
