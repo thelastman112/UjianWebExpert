@@ -1,3 +1,4 @@
+import 'lazysizes'
 import CONFIG from '../config'
 export const modal = async () => {
   const modalStructure =
@@ -6,36 +7,49 @@ export const modal = async () => {
     <div class="modal-content">
       <div data-id="id"></div>          
         <div class="modal-header">
-          <h3>Restaurant Menu</h3>
+          <h3 class="name" tabindex="0"></h3>
+          <div class="restdet">
+          </div>
           <button class="close">&times;</button>
         </div>
+      <div class="img"></div>
       <div class="modal-body">
         <table>
           <tbody class="tbody">
-            <tr>
-              <td>Alamat</td>
-              <td>address</td>
+            <tr tabindex="0">
+              <td>Deskripsi</td>
+              <td class="desc"></td>
             </tr>
-            <tr class="bordered">
+            <tr tabindex="0">
+              <td>Kategori</td>
+              <td class="cate"></td>
+            </tr>
+            <tr tabindex="0">
+              <td>Alamat</td>
+              <td class="address"></td>
+            </tr>
+            <tr class="bordered" tabindex="0">
               <td>Menu</td>
               <td>
                 <span>Makanan</span>
-                <ul class="ul1"></ul>
-              </td>
-              <td>
+                <ul class="food"></ul>
                 <span>Minuman</span>
-                <ul class="ul2"></ul>
+                <ul class="drink"></ul>
               </td>
             </tr>
           </tbody>
         </table>
+      <div>
+        <h2 tabindex="0">Review</h2>
+        <ul class="review">
+        </ul>
       </div>
     </div>
   </div>
   `
   document.querySelector('.modal').innerHTML += modalStructure
   const btnDetail = document.querySelectorAll('#detailButton')
-  const modal = document.querySelector('.modaldiv')
+  const modal = document.querySelector('.modal')
   const close = document.querySelector('.close')
   let id = []
   btnDetail.forEach(e => {
@@ -55,28 +69,84 @@ export const modal = async () => {
       .catch(() => {
         return []
       })
-    const foodsDetail = detailFetch.restaurant.menus.foods
-    const drinksDetail = detailFetch.restaurant.menus.drinks
-    const fetchul1 = document.querySelector('.ul1')
-    const fetchul2 = document.querySelector('.ul2')
-    foodsDetail.forEach((food) => {
-      fetchul1.innerHTML += `
+    // console.log(detailFetch)
+    const name = detailFetch.restaurant.name
+    const pict = detailFetch.restaurant.pictureId
+    const desc = detailFetch.restaurant.description
+    const cate = detailFetch.restaurant.categories
+    const addr = detailFetch.restaurant.address
+    const city = detailFetch.restaurant.city
+    const foods = detailFetch.restaurant.menus.foods
+    const drinks = detailFetch.restaurant.menus.drinks
+    const custrev = detailFetch.restaurant.customerReviews
+    const restdet = document.querySelector('.restdet')
+    const cimg = document.querySelector('.img')
+    const cname = document.querySelector('.name')
+    const cdesc = document.querySelector('.desc')
+    const ccate = document.querySelector('.cate')
+    const caddress = document.querySelector('.address')
+    const cfood = document.querySelector('.food')
+    const cdrink = document.querySelector('.drink')
+    const creview = document.querySelector('.review')
+    restdet.innerHTML = `
+      <a href="restaurantdetail.html?id=${id}" class="showfull" tabindex="0">Show Full Page</a>
+    `
+    cname.innerHTML = `
+      ${name}
+    `
+    cimg.innerHTML = `
+      <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + pict}" class="lazyload" />
+    `
+    cdesc.innerHTML = `
+      ${desc}
+    `
+    cate.forEach((cate) => {
+      ccate.innerHTML += `
+        <li>${cate.name}</li>
+      `
+    })
+    caddress.innerHTML = `
+      ${addr}, ${city}
+    `
+    foods.forEach((food) => {
+      cfood.innerHTML += `
         <li>${food.name}</li>
       `
     })
-    drinksDetail.forEach((drink) => {
-      fetchul2.innerHTML += `
+    drinks.forEach((drink) => {
+      cdrink.innerHTML += `
         <li>${drink.name}</li>
+      `
+    })
+    custrev.forEach((rev) => {
+      creview.innerHTML += `
+      <li>
+        <div class="revcontent">
+          <div class="revheader">
+            <h4 tabindex="0">${rev.name}</h4>
+            <h5 tabindex="0">${rev.date}</h5>
+          </div>
+          <div class="revbody">
+            <p tabindex="0">${rev.review}</p>
+          </div>
+        </div>
+      </li>
       `
     })
     close.addEventListener('click', () => {
       modal.style.display = 'none'
-      document.querySelectorAll('.temp').forEach(a => a.remove())
+      ccate.innerHTML = ''
+      cfood.innerHTML = ''
+      cdrink.innerHTML = ''
+      creview.innerHTML = ''
     })
     window.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.style.display = 'none'
-        document.querySelectorAll('.temp').forEach(a => a.remove())
+        ccate.innerHTML = ''
+        cfood.innerHTML = ''
+        cdrink.innerHTML = ''
+        creview.innerHTML = ''
       }
     })
   }

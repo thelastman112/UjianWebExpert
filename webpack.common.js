@@ -62,6 +62,11 @@ module.exports = {
       minify: true
     }),
     new HtmlWebpackPlugin({
+      filename: 'fav.html',
+      template: path.resolve('src/templates/fav.html'),
+      minify: true
+    }),
+    new HtmlWebpackPlugin({
       filename: 'restaurantdetail.html',
       template: path.resolve('src/templates/restaurantdetail.html'),
       minify: true

@@ -1,33 +1,49 @@
+.modal {
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+}
 .modaldiv {
-    display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    top: 10%;
+    left: 10%;
+    max-height: 600px;
+    max-width: 80%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.7);
   }
   .modal-content {
     color: white;
     display: flex;
     flex-direction: column;
     background-color: #222831;
-    margin: 15% auto;
-    padding: 20px;
     border: 1px solid #888;
-    width: 80%;
   }
   .modal-header {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+  }
+  .restdet {
+    align-self: center;
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: #00ADB5;
+    }
   }
   .modal-body {
     padding: 16px;
   }
-  .modal-body > h3 {
-    margin-bottom: 4px;
+  .modal-body > div > h2 {
+    margin-bottom: 16px;
   }
   .modal-body > table > tbody > tr > td {
     padding: 10px;
@@ -36,6 +52,9 @@
     min-height: 44px;
     min-width: 44px;
   }
+  .name {
+    align-self: center;
+  }
   .class-body {
     text-align: left;
   }
@@ -43,12 +62,24 @@
     border-style: outset;
     border-color: blue !important;
   }
-  .bordered > td {
+  .bordered > td, .tbody > tr > td  {
     vertical-align: baseline;
   }
   .temp{
     padding-left: 16px;
   }
-  .ul1, .ul2 {
+  .food, .drink {
     padding: 10px;
+  }
+  .revcontent {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+    border-radius: 10px;
+    background-color: #393e46;
+    margin-bottom: 16px;
+  }
+  .revbody {
+    padding : 10px 0;
   }
