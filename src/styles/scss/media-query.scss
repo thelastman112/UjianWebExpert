@@ -1,87 +1,97 @@
+@media (max-width: 1200px) {
+  .detailContent, .detailReview {
+    width: 80vw;
+  }
+}
+@media (max-width: 1024px) {
+  .cardList {
+    grid-auto-columns: 50%;
+  }
+}
+@media (max-width: 1200px) {
+  main > section#onboarding > div, .detailimg {
+    height: inherit;
+    width: 100%;
+    min-width: 0;
+  }
+  main > section#onboarding > div > picture {
+    position: absolute;
+    height: inherit;
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
+    min-width: 0;
+  }
+  main > section#onboarding > div > picture > img {
+    height: inherit;
+    width: 100%;
+    object-fit: cover;
+    min-width: 0;
+  }
+}
+@media (min-width: 769px) {
+  nav > ul {
+    transition: 0s;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    justify-content: space-around;
+    min-width: 300px;
+  }
+  buttonbars {
+    display: none;
+  }
+}
 @media (max-width: 768px) {
-    nav {
-      height: 60px;
-      position: fixed;
-      width: 100%;
-      transition: 0.4s;
-      top: 0;
-    }
-    nav > a {
-      display: block;
-    }
-    nav > ul {
-      display: none;
-    }
-    nav > a > h1 {
-      padding: 5px; 
-    }
-    button-bars {
-      display: block;
-    }
-    .nav > ul {
-      display: flex;
-      text-align: left;
-      flex-direction: column;
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.8);
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
-    .nav.resp > ul  {
-      width: 150px;
-    }
-    .nav > ul > li ,.nav.resp > ul > li {
-      padding: 20px 0;
-    }
+  nav {
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    transition: 0.4s;
+    top: 0;
   }
-  @media (min-width: 769px) {
-    nav > ul {
-      transition: 0s;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      position: relative;
-      justify-content: space-around;
-      min-width: 300px;
-    }
-    buttonbars {
-      display: none;
-    }
+  nav > a {
+    display: block;
   }
-  @media (max-width: 1200px) {
-    main > section#onboarding > div {
-      height: inherit;
-      width: 99vw;
-      min-width: 0;
-    }
-    main > section#onboarding > div > picture {
-      position: absolute;
-      height: inherit;
-      object-fit: cover;
-      overflow: hidden;
-      width: 100%;
-      min-width: 0;
-    }
-    main > section#onboarding > div > picture > img {
-      height: inherit;
-      width: 99vw;
-      object-fit: cover;
-      min-width: 0;
-    }
+  nav > ul {
+    display: none;
   }
-  @media (max-width: 1024px) {
-    .cardList {
-      grid-auto-columns: 50%;
-    }
+  nav > a > h1 {
+    padding: 5px; 
   }
-  @media (max-width: 540px) {
-    .cardList {
-      grid-auto-columns: 100%;
-    }
+  button-bars {
+    display: block;
   }
+  .nav > ul {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  .nav.resp > ul  {
+    width: 150px;
+  }
+  .nav > ul > li ,.nav.resp > ul > li {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 540px) {
+  .cardList {
+    grid-auto-columns: 100%;
+  }
+}
+
+
+
+
+

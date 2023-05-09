@@ -28,6 +28,9 @@
     justify-content: space-between;
     padding: 10px;
   }
+  .review, .revname {
+    padding: 10px;
+  }
   .restdet {
     align-self: center;
     a {
@@ -68,7 +71,7 @@
   .temp{
     padding-left: 16px;
   }
-  .food, .drink {
+  .food, .drink, .cate, .desc , .addr {
     padding: 10px;
   }
   .revcontent {

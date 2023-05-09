@@ -7,8 +7,40 @@
     <meta name="description" content="restoran terdekat">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <title>Pangananku</title>
+    <style>
+        body {
+          background: #222831;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/120c92f19a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h4>cek</h4>
+    <header id="header">
+        <nav id="nav" class="nav">
+          <a href="/" class="brand" tabindex="0">
+            <h1>Pangananku</h1>
+          </a>
+          <button-bars id="buttonbars"></button-bars>
+          <ul id="ulnav">
+              <li><a href="/">Home</a></li>
+              <li><a href="fav.html">Favorite</a></li>
+              <li>
+                  <a href="https://github.com/thelastman112" target="_blank" rel="noopener">About Us</a>
+              </li>
+          </ul>
+        </nav>
+        <button class="backButton" onclick="history.back()"></button>
+    </header>   
+    <main>
+        <section class="detailRest">
+            <div class="mainDetail">
+                <div class="detailHeader"></div>
+                <div class="detailContent"></div>
+                <button class="favButton"></button>
+                <div class="detailReview"></div>
+            </div>
+        </section>
+    </main>
+    <footer-comp id="footer"></footer-comp>
 </body>
 </html>

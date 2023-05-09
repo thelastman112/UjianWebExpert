@@ -27,7 +27,7 @@
   }
   main > section#onboarding > div {
     height: inherit;
-    width: calc(99vw - 500px);
+    width: calc(100% - 500px);
     min-width: 1000px;
   }
  
@@ -36,7 +36,7 @@
     height: inherit;
     object-fit: cover;
     overflow: hidden;
-    width: calc(99vw - 500px);
+    width: calc(100% - 500px);
     min-width: inherit;
     z-index: -1;
   }
@@ -70,7 +70,7 @@
     color: #EEEEEE;
   }
   main > section {
-    width: 99vw;
+    width: 100%;
   }
   main > section > h1 {
     text-align: center;

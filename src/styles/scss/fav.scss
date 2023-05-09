@@ -1,0 +1,37 @@
+.resCard {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    background-color: #393E46;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    box-shadow: 0px 12px 12px rgb(13 11 11 / 91%);
+}
+#resImg {
+    height: inherit;
+    width: 100px;
+    object-fit: cover;
+}
+.resCardContent {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+}
+.resMainContent > h2 {
+    color: #00ADB5;
+}
+#resButtonDiv {
+    align-self: center;
+    padding: 16px;
+}
+#resDetailButton {
+    font-weight: bolder;
+    color: white;
+    border: none;
+    background-color: rgba(0,0,0,0);
+}
+#resDetailButton:hover {
+    cursor: pointer;
+    color: #00ADB5;
+}

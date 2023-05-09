@@ -1,17 +1,18 @@
 import 'lazysizes'
 import CONFIG from '../config'
 export const modal = async () => {
-  const modalStructure =
+	const modalStructure =
   `
   <div class="modaldiv">
     <div class="modal-content">
-      <div data-id="id"></div>          
-        <div class="modal-header">
-          <h3 class="name" tabindex="0"></h3>
-          <div class="restdet">
-          </div>
-          <button class="close">&times;</button>
+      <div data-id="id">
+      </div>          
+      <div class="modal-header">
+        <h3 class="name" tabindex="0"></h3>
+        <div class="restdet">
         </div>
+        <button class="close">&times;</button>
+      </div>
       <div class="img"></div>
       <div class="modal-body">
         <table>
@@ -39,87 +40,97 @@ export const modal = async () => {
             </tr>
           </tbody>
         </table>
+      </div>
       <div>
-        <h2 tabindex="0">Review</h2>
-        <ul class="review">
-        </ul>
+        <h2 class="revname" tabindex="0">Review</h2>
+        <ul class="review"></ul>
       </div>
     </div>
   </div>
   `
-  document.querySelector('.modal').innerHTML += modalStructure
-  const btnDetail = document.querySelectorAll('#detailButton')
-  const modal = document.querySelector('.modal')
-  const close = document.querySelector('.close')
-  let id = []
-  btnDetail.forEach(e => {
-    e.addEventListener('click', () => {
-      id = e.getAttribute('data-id')
-      fetchingData(id)
-      modal.style.display = 'block'
-    })
-  })
-  async function fetchingData (id) {
-    const detailFetch = await fetch(`${CONFIG.API_URL}/detail/${id}`, {
-      headers: {
-        Accept: 'application/json'
-      }
-    })
-      .then((response) => response.json())
-      .catch(() => {
-        return []
-      })
-    // console.log(detailFetch)
-    const name = detailFetch.restaurant.name
-    const pict = detailFetch.restaurant.pictureId
-    const desc = detailFetch.restaurant.description
-    const cate = detailFetch.restaurant.categories
-    const addr = detailFetch.restaurant.address
-    const city = detailFetch.restaurant.city
-    const foods = detailFetch.restaurant.menus.foods
-    const drinks = detailFetch.restaurant.menus.drinks
-    const custrev = detailFetch.restaurant.customerReviews
-    const restdet = document.querySelector('.restdet')
-    const cimg = document.querySelector('.img')
-    const cname = document.querySelector('.name')
-    const cdesc = document.querySelector('.desc')
-    const ccate = document.querySelector('.cate')
-    const caddress = document.querySelector('.address')
-    const cfood = document.querySelector('.food')
-    const cdrink = document.querySelector('.drink')
-    const creview = document.querySelector('.review')
-    restdet.innerHTML = `
+	document.querySelector('.modal').innerHTML += modalStructure
+	const btnDetail = document.querySelectorAll('#detailButton')
+	document.querySelector('.resmodal').innerHTML += modalStructure
+	const resbtnDetail = document.querySelectorAll('#resDetailButton')
+	const modal = document.querySelector('.modal')
+	const close = document.querySelector('.close')
+	let id = []
+	btnDetail.forEach(e => {
+		e.addEventListener('click', () => {
+			id = e.getAttribute('data-id')
+			fetchingData(id)
+			modal.style.display = 'block'
+		})
+	})
+	resbtnDetail.forEach(e => {
+		e.addEventListener('click', () => {
+			console.log('cek')
+			// id = e.getAttribute('data-id')
+			// fetchingData(id)
+			// modal.style.display = 'block'
+		})
+	})
+	async function fetchingData (id) {
+		const detailFetch = await fetch(`${CONFIG.API_URL}/detail/${id}`, {
+			headers: {
+				Accept: 'application/json'
+			}
+		})
+			.then((response) => response.json())
+			.catch(() => {
+				return []
+			})
+		// console.log(detailFetch)
+		const name = detailFetch.restaurant.name
+		const pict = detailFetch.restaurant.pictureId
+		const desc = detailFetch.restaurant.description
+		const cate = detailFetch.restaurant.categories
+		const addr = detailFetch.restaurant.address
+		const city = detailFetch.restaurant.city
+		const foods = detailFetch.restaurant.menus.foods
+		const drinks = detailFetch.restaurant.menus.drinks
+		const custrev = detailFetch.restaurant.customerReviews
+		const restdet = document.querySelector('.restdet')
+		const cimg = document.querySelector('.img')
+		const cname = document.querySelector('.name')
+		const cdesc = document.querySelector('.desc')
+		const ccate = document.querySelector('.cate')
+		const caddress = document.querySelector('.address')
+		const cfood = document.querySelector('.food')
+		const cdrink = document.querySelector('.drink')
+		const creview = document.querySelector('.review')
+		restdet.innerHTML = `
       <a href="restaurantdetail.html?id=${id}" class="showfull" tabindex="0">Show Full Page</a>
     `
-    cname.innerHTML = `
+		cname.innerHTML = `
       ${name}
     `
-    cimg.innerHTML = `
+		cimg.innerHTML = `
       <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + pict}" class="lazyload" />
     `
-    cdesc.innerHTML = `
+		cdesc.innerHTML = `
       ${desc}
     `
-    cate.forEach((cate) => {
-      ccate.innerHTML += `
+		cate.forEach((cate) => {
+			ccate.innerHTML += `
         <li>${cate.name}</li>
       `
-    })
-    caddress.innerHTML = `
+		})
+		caddress.innerHTML = `
       ${addr}, ${city}
     `
-    foods.forEach((food) => {
-      cfood.innerHTML += `
+		foods.forEach((food) => {
+			cfood.innerHTML += `
         <li>${food.name}</li>
       `
-    })
-    drinks.forEach((drink) => {
-      cdrink.innerHTML += `
+		})
+		drinks.forEach((drink) => {
+			cdrink.innerHTML += `
         <li>${drink.name}</li>
       `
-    })
-    custrev.forEach((rev) => {
-      creview.innerHTML += `
+		})
+		custrev.forEach((rev) => {
+			creview.innerHTML += `
       <li>
         <div class="revcontent">
           <div class="revheader">
@@ -132,22 +143,22 @@ export const modal = async () => {
         </div>
       </li>
       `
-    })
-    close.addEventListener('click', () => {
-      modal.style.display = 'none'
-      ccate.innerHTML = ''
-      cfood.innerHTML = ''
-      cdrink.innerHTML = ''
-      creview.innerHTML = ''
-    })
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none'
-        ccate.innerHTML = ''
-        cfood.innerHTML = ''
-        cdrink.innerHTML = ''
-        creview.innerHTML = ''
-      }
-    })
-  }
+		})
+		close.addEventListener('click', () => {
+			modal.style.display = 'none'
+			ccate.innerHTML = ''
+			cfood.innerHTML = ''
+			cdrink.innerHTML = ''
+			creview.innerHTML = ''
+		})
+		window.addEventListener('click', (e) => {
+			if (e.target === modal) {
+				modal.style.display = 'none'
+				ccate.innerHTML = ''
+				cfood.innerHTML = ''
+				cdrink.innerHTML = ''
+				creview.innerHTML = ''
+			}
+		})
+	}
 }

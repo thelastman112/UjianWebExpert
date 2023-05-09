@@ -1,0 +1,72 @@
+
+.detailRest {
+	color: white;
+}
+.divimg  {
+		display: flex;
+		justify-content: center;
+}
+.detailimg {
+	min-width: 1000px;
+	width: calc(100% - 500px);
+}
+.extradetail {
+	display: flex;
+	justify-content: space-around;
+	margin: auto;
+    width: 60vw;
+	h2, h3 {
+		margin: 10px 0;
+		font-size: 24px;
+	}
+}
+.detailContent, .detailReview {
+	width: 60vw;
+	margin: auto;
+}
+.underline {
+	width: fit-content;
+    box-shadow: inset 0px -1px #00ADB5;
+}
+.cate, .desc , .addr, .menu {
+    padding: 10px;
+}
+.backButton {
+	background-image: url(./../../public/images/back.svg);
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+	border: none;
+	position: fixed;
+	top: 100px;
+	left: 10px;
+	border-radius: 50%;
+	background-color: #00ADB5;
+}
+.favButton {
+	background-image: url(../../public/images/heart-solid.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 50%;
+	background-size: 50%;
+	position: fixed;
+	bottom: 50px;
+	right: 10px;
+	border: none;
+}
+.redfavButton {
+	background-image: url(../../public/images/red-heart-icon.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 50%;
+	background-size: 50%;
+	position: fixed;
+	bottom: 50px;
+	right: 10px;
+	border: none;
+}
+.backButton:hover, .favButton:hover, .redfavButton {
+	background-size: 65%;
+	cursor: pointer;
+	background-color: #00ADB5;
+}
