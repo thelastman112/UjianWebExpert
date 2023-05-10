@@ -32,7 +32,7 @@
     padding: 10px;
 }
 .backButton {
-	background-image: url(./../../public/images/back.svg);
+	background-image: url(./../../public/images/svg/back.svg);
 	background-repeat: no-repeat;
     background-position: center center;
     background-size: 50%;
@@ -44,7 +44,7 @@
 	background-color: #00ADB5;
 }
 .favButton {
-	background-image: url(../../public/images/heart-solid.svg);
+	background-image: url(../../public/images/svg/heart-solid.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	border-radius: 50%;
@@ -55,7 +55,7 @@
 	border: none;
 }
 .redfavButton {
-	background-image: url(../../public/images/red-heart-icon.svg);
+	background-image: url(../../public/images/svg/red-heart-icon.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	border-radius: 50%;
@@ -65,8 +65,13 @@
 	right: 10px;
 	border: none;
 }
-.backButton:hover, .favButton:hover, .redfavButton {
+.backButton:hover, .favButton:hover, .redfavButton:hover {
 	background-size: 65%;
 	cursor: pointer;
 	background-color: #00ADB5;
+}
+.revName {	
+	width: fit-content;
+	margin: auto;
+	margin-bottom: 16px;
 }

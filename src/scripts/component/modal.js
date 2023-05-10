@@ -1,5 +1,6 @@
 import 'lazysizes'
 import CONFIG from '../config'
+import database from '../favidb'
 export const modal = async () => {
 	const modalStructure =
   `
@@ -11,7 +12,7 @@ export const modal = async () => {
         <h3 class="name" tabindex="0"></h3>
         <div class="restdet">
         </div>
-        <button class="close">&times;</button>
+        <button class="close"></button>
       </div>
       <div class="img"></div>
       <div class="modal-body">
@@ -42,36 +43,28 @@ export const modal = async () => {
         </table>
       </div>
       <div>
-        <h2 class="revname" tabindex="0">Review</h2>
-        <ul class="review"></ul>
+		<h2 class="revname" tabindex="0">Review</h2>
+		<ul class="review"></ul>
       </div>
+	  <button class="favmodal"></button>
     </div>
   </div>
   `
-	document.querySelector('.modal').innerHTML += modalStructure
+	document.querySelector('.modal').innerHTML = modalStructure
 	const btnDetail = document.querySelectorAll('#detailButton')
-	document.querySelector('.resmodal').innerHTML += modalStructure
-	const resbtnDetail = document.querySelectorAll('#resDetailButton')
 	const modal = document.querySelector('.modal')
 	const close = document.querySelector('.close')
-	let id = []
+	let saveid = []
 	btnDetail.forEach(e => {
 		e.addEventListener('click', () => {
-			id = e.getAttribute('data-id')
-			fetchingData(id)
+			saveid = e.getAttribute('data-id')
+			fetchingData(saveid)
 			modal.style.display = 'block'
 		})
 	})
-	resbtnDetail.forEach(e => {
-		e.addEventListener('click', () => {
-			console.log('cek')
-			// id = e.getAttribute('data-id')
-			// fetchingData(id)
-			// modal.style.display = 'block'
-		})
-	})
-	async function fetchingData (id) {
-		const detailFetch = await fetch(`${CONFIG.API_URL}/detail/${id}`, {
+
+	async function fetchingData (saveid) {
+		const detailFetch = await fetch(`${CONFIG.API_URL}/detail/${saveid}`, {
 			headers: {
 				Accept: 'application/json'
 			}
@@ -80,7 +73,6 @@ export const modal = async () => {
 			.catch(() => {
 				return []
 			})
-		// console.log(detailFetch)
 		const name = detailFetch.restaurant.name
 		const pict = detailFetch.restaurant.pictureId
 		const desc = detailFetch.restaurant.description
@@ -100,56 +92,79 @@ export const modal = async () => {
 		const cdrink = document.querySelector('.drink')
 		const creview = document.querySelector('.review')
 		restdet.innerHTML = `
-      <a href="restaurantdetail.html?id=${id}" class="showfull" tabindex="0">Show Full Page</a>
-    `
+			<a href="restaurantdetail.html?id=${saveid}" class="showfull" tabindex="0">Show Full Page</a>
+			`
 		cname.innerHTML = `
-      ${name}
-    `
+			${name}
+			`
 		cimg.innerHTML = `
-      <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + pict}" class="lazyload" />
-    `
+			<img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + pict}" class="lazyload" />
+			`
 		cdesc.innerHTML = `
-      ${desc}
-    `
+			${desc}
+			`
 		cate.forEach((cate) => {
 			ccate.innerHTML += `
-        <li>${cate.name}</li>
-      `
+				<li>${cate.name}</li>
+			`
 		})
 		caddress.innerHTML = `
-      ${addr}, ${city}
-    `
+			${addr}, ${city}
+			`
 		foods.forEach((food) => {
 			cfood.innerHTML += `
-        <li>${food.name}</li>
-      `
+				<li>${food.name}</li>
+			`
 		})
 		drinks.forEach((drink) => {
 			cdrink.innerHTML += `
-        <li>${drink.name}</li>
-      `
+				<li>${drink.name}</li>
+			`
 		})
 		custrev.forEach((rev) => {
 			creview.innerHTML += `
-      <li>
-        <div class="revcontent">
-          <div class="revheader">
-            <h4 tabindex="0">${rev.name}</h4>
-            <h5 tabindex="0">${rev.date}</h5>
-          </div>
-          <div class="revbody">
-            <p tabindex="0">${rev.review}</p>
-          </div>
-        </div>
-      </li>
-      `
+			<li>
+				<div class="revcontent">
+				<div class="revheader">
+					<h4 tabindex="0">${rev.name}</h4>
+					<h5 tabindex="0">${rev.date}</h5>
+				</div>
+				<div class="revbody">
+					<p tabindex="0">${rev.review}</p>
+				</div>
+				</div>
+			</li>
+			`
 		})
+		const favmodalbtn = document.querySelector('.favmodal')
+		console.log(favmodalbtn)
+		favmodalbtn.addEventListener('click', () => {
+			if (favmodalbtn.className === 'favmodal') {
+				favmodalbtn.className = 'redfavmodal'
+				console.log('successs')
+			} else {
+				favmodalbtn.className = 'favmodal'
+				console.log('failed')
+			}
+		})
+		autofav(saveid)
+		async function autofav (saveid) {
+			const favmodalbtn = document.querySelector('.favmodal')
+			database.getFavoriteRestaurant(saveid).then((e) => {
+				if (e !== undefined) {
+					favmodalbtn.className = 'redfavmodal'
+				} else {
+					favmodalbtn.className = 'favmodal'
+				}
+			})
+		}
 		close.addEventListener('click', () => {
 			modal.style.display = 'none'
 			ccate.innerHTML = ''
 			cfood.innerHTML = ''
 			cdrink.innerHTML = ''
 			creview.innerHTML = ''
+			favmodalbtn.className = 'favmodal'
 		})
 		window.addEventListener('click', (e) => {
 			if (e.target === modal) {
@@ -158,6 +173,7 @@ export const modal = async () => {
 				cfood.innerHTML = ''
 				cdrink.innerHTML = ''
 				creview.innerHTML = ''
+				favmodalbtn.className = 'favmodal'
 			}
 		})
 	}

@@ -14,28 +14,28 @@ const dbProm = openDB(db, 1, {
 const database = {
 	async getFavoriteRestaurants () {
 		const db = await dbProm
-		const tx = await db.transaction(favstore)
+		const tx = db.transaction(favstore)
 		const store = tx.objectStore(favstore)
 		const restaurants = await store.getAll()
 		return restaurants
 	},
 	async getFavoriteRestaurant (id) {
 		const db = await dbProm
-		const tx = await db.transaction(favstore)
+		const tx = db.transaction(favstore)
 		const store = tx.objectStore(favstore)
 		const restaurant = await store.get(id)
 		return restaurant
 	},
 	async addFavoriteRestaurant (restaurant) {
 		const db = await dbProm
-		const tx = await db.transaction(favstore, 'readwrite')
+		const tx = db.transaction(favstore, 'readwrite')
 		const store = tx.objectStore(favstore)
 		await store.add(restaurant)
 		await tx.complete
 	},
 	async removeFavoriteRestaurant (restaurant) {
 		const db = await dbProm
-		const tx = await db.transaction(favstore, 'readwrite')
+		const tx = db.transaction(favstore, 'readwrite')
 		const store = tx.objectStore(favstore)
 		await store.delete(restaurant.id)
 		await tx.complete

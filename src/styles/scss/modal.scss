@@ -86,3 +86,43 @@
   .revbody {
     padding : 10px 0;
   }
+  .close {
+    background-image: url(../../public/images/svg/211652_close_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 44px;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .close:hover {
+    cursor: pointer;
+    background-size: 50px;
+  }
+  .favmodal {
+    background-image: url(../../public/images/svg/heart-solid.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    background-size: 50%;
+    position: fixed;
+    bottom: 12vh;
+    right: 15vw;
+    border: none;
+  }
+  .redfavmodal {
+    background-image: url(../../public/images/svg/red-heart-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    background-size: 50%;
+    position: fixed;
+    bottom: 12vh;
+    right: 15vw;
+    border: none;
+  }
+  .favmodal:hover, .redfavmodal:hover {
+    background-size: 65%;
+    cursor: pointer;
+    background-color: #00ADB5;
+  }

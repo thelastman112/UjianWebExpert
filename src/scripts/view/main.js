@@ -13,16 +13,20 @@ import { restdetail } from '../component/restdetail'
 import { fav } from '../component/fav'
 
 const main = () => {
-	fetch()
 	imageTransition()
 	mobileNav()
 	restdetail()
-	fav()
+	fetch()
+	favmod()
 }
 
 const fetch = async () => {
 	await getCardList()
 	modal()
+}
+
+const favmod = async () => {
+	fav()
 }
 
 export default main
