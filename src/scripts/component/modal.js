@@ -46,7 +46,8 @@ export const modal = async () => {
 		<h2 class="revname" tabindex="0">Review</h2>
 		<ul class="review"></ul>
       </div>
-	  <button class="favmodal"></button>
+	  <div class="favbutton">
+	  </div>
     </div>
   </div>
   `
@@ -136,15 +137,31 @@ export const modal = async () => {
 			</li>
 			`
 		})
+		const favbutton = document.querySelector('.favbutton')
+		favbutton.innerHTML = `
+		<button class="favmodal"></button>
+		`
 		const favmodalbtn = document.querySelector('.favmodal')
-		console.log(favmodalbtn)
 		favmodalbtn.addEventListener('click', () => {
+			const id = {
+				id: saveid
+			}
 			if (favmodalbtn.className === 'favmodal') {
 				favmodalbtn.className = 'redfavmodal'
-				console.log('successs')
+				database.addFavoriteRestaurant(id).then(() => {
+					console.log('add success')
+				}).catch((err) => {
+					console.error(err)
+					console.log('add failed')
+				})
 			} else {
 				favmodalbtn.className = 'favmodal'
-				console.log('failed')
+				database.removeFavoriteRestaurant(id).then(() => {
+					console.log('remove success')
+				}).catch((err) => {
+					console.error(err)
+					console.log('remove failed')
+				})
 			}
 		})
 		autofav(saveid)
