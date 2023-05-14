@@ -1,7 +1,7 @@
 import 'lazysizes'
 import CONFIG from '../config'
 import database from '../favidb'
-export const fav = async () => {
+export const fav = () => {
 	const favitem = document.querySelector('.favitem')
 	database.getFavoriteRestaurants().then(e => {
 		e.forEach(async id => {
@@ -28,14 +28,15 @@ export const fav = async () => {
 							<h4 tabindex="0">${rest.city}</h4>
 						</div>
 					</div>
-					<div id="favButton">
-						<button class="fullpage" data-id="${rest.id}">Full Page</button>
+					<div class="favFullPage">
+						<button class="fullpage" onclick="location.href='restaurantdetail.html?id=${rest.id}'" data-id="${rest.id}">Full Page</button>
 					</div>
 				</div>
-		  	</div>
+			</div>
 			`
 		})
 		const fetchid = document.querySelectorAll('.fullpage')
+		console.log(fetchid)
 		fetchid.forEach((e) => {
 			e.addEventListener('click', () => {
 				const id = e.getAttribute('data-id')

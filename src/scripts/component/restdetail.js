@@ -150,5 +150,9 @@ export const restdetail = async () => {
 				}
 			})
 		}
+		const backButton = document.querySelector('.backButton')
+		backButton.addEventListener('click', () => {
+			localStorage.clear()
+		})
 	}
 }
