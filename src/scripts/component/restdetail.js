@@ -143,6 +143,7 @@ export const restdetail = async () => {
 		autofav(id)
 		async function autofav (id) {
 			database.getFavoriteRestaurant(id).then((e) => {
+				console.log(e)
 				if (e !== undefined) {
 					favBtn.className = 'redfavButton'
 				} else {
@@ -150,9 +151,5 @@ export const restdetail = async () => {
 				}
 			})
 		}
-		const backbutton = document.querySelector('.backButton')
-		backbutton.addEventListener('click', () => {
-			localStorage.clear()
-		})
 	}
 }

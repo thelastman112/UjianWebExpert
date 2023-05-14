@@ -76,6 +76,7 @@ module.exports = {
 				{
 					from: path.resolve('src/public/'),
 					to: path.resolve('dist/')
+
 				}
 			]
 		}),

@@ -46,8 +46,7 @@ export const modal = async () => {
 		<h2 class="revname" tabindex="0">Review</h2>
 		<ul class="review"></ul>
       </div>
-	  <div class="favbutton">
-	  </div>
+	  <div class="favbtn"></div>
     </div>
   </div>
   `
@@ -137,37 +136,36 @@ export const modal = async () => {
 			</li>
 			`
 		})
-		const favbutton = document.querySelector('.favbutton')
-		favbutton.innerHTML = `
-		<button class="favmodal"></button>
+		const favbtn = document.querySelector('.favbtn')
+		favbtn.innerHTML = `
+			<button class="favmodal"></button>
 		`
 		const favmodalbtn = document.querySelector('.favmodal')
+		const data = {
+			id: saveid
+		}
+		console.log(saveid)
 		favmodalbtn.addEventListener('click', () => {
-			const id = {
-				id: saveid
-			}
 			if (favmodalbtn.className === 'favmodal') {
 				favmodalbtn.className = 'redfavmodal'
-				database.addFavoriteRestaurant(id).then(() => {
+				database.addFavoriteRestaurant(data).then(() => {
 					console.log('add success')
-				}).catch((err) => {
-					console.error(err)
+				}).catch(() => {
 					console.log('add failed')
 				})
 			} else {
 				favmodalbtn.className = 'favmodal'
-				database.removeFavoriteRestaurant(id).then(() => {
+				database.removeFavoriteRestaurant(data).then(() => {
 					console.log('remove success')
-				}).catch((err) => {
-					console.error(err)
+				}).catch(() => {
 					console.log('remove failed')
 				})
 			}
 		})
 		autofav(saveid)
 		async function autofav (saveid) {
-			const favmodalbtn = document.querySelector('.favmodal')
 			database.getFavoriteRestaurant(saveid).then((e) => {
+				console.log(e)
 				if (e !== undefined) {
 					favmodalbtn.className = 'redfavmodal'
 				} else {
