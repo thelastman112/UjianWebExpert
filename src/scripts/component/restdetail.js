@@ -143,7 +143,6 @@ export const restdetail = async () => {
 		autofav(id)
 		async function autofav (id) {
 			database.getFavoriteRestaurant(id).then((e) => {
-				console.log(e)
 				if (e !== undefined) {
 					favBtn.className = 'redfavButton'
 				} else {

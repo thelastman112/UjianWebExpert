@@ -1,5 +1,8 @@
-.resCard {
-    height: 100px;
+.favBodyMain {
+    margin-top: 0px;
+}
+.favCard {
+    height: 150px;
     width: 100%;
     display: flex;
     background-color: #393E46;
@@ -7,41 +10,35 @@
     border-radius: 10px;
     box-shadow: 0px 12px 12px rgb(13 11 11 / 91%);
 }
-#resImg {
+.favImg {
     height: inherit;
-    width: 100px;
+    width: 150px;
     object-fit: cover;
 }
-.resCardContent {
+.favContent {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 10px;
 }
-.resMainContent > h2 {
-    color: #00ADB5;
-}
-#resButtonDiv {
-    align-self: center;
+.favMain {
     padding: 16px;
 }
-.resDetButton {
-    font-weight: bolder;
-    color: white;
-    border: none;
-    background-color: rgba(0,0,0,0);
-}
-.resDetButton:hover {
-    cursor: pointer;
+.favHeader > h1 {
+    font-size: 32px;
     color: #00ADB5;
 }
-.res {
-    display: none;
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.7);
-    width: 100%;
+.fullpage{
+    background-color: rgba(0,0,0,0);
+    font-size: 16px;
+    padding: 16px;
+    border: none;
     height: 100%;
+    color: #eee;
+    font-weight: bolder;
+}
+.fullpage:hover{
+    cursor: pointer;
+    color: #00ADB5;
 }
