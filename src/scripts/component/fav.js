@@ -34,7 +34,10 @@ export const fav = () => {
 				</div>
 			</div>
 			`
+			open()
 		})
+	})
+	async function open () {
 		const fetchid = document.querySelectorAll('.fullpage')
 		console.log(fetchid)
 		fetchid.forEach((e) => {
@@ -44,5 +47,5 @@ export const fav = () => {
 				localStorage.setItem('ids', id)
 			})
 		})
-	})
+	}
 }

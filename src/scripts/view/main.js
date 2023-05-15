@@ -26,7 +26,7 @@ const fetch = async () => {
 }
 
 const favmod = async () => {
-	fav()
+	await fav()
 }
 
 export default main
