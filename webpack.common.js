@@ -88,6 +88,10 @@ module.exports = {
 				}
 			]
 		}),
+		new WorkboxPlugin.GenerateSW({
+			clientsClaim: true,
+			skipWaiting: true
+		  }),
 		new ImageminPlugin({
 			plugins: [
 				imageminMozjpeg({
