@@ -18,6 +18,7 @@ const main = () => {
 	restdetail()
 	fetch()
 	favmod()
+	navigator.serviceWorker.register('sw.bundle.js')
 }
 
 const fetch = async () => {

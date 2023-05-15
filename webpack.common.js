@@ -2,8 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -58,12 +56,6 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin({
-			cleanStaleWebpackAssets: true,
-			cleanOnceBeforeBuildPatterns: [
-				'**/*'
-			]
-		}),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: path.resolve('src/templates/index.html'),
@@ -88,10 +80,6 @@ module.exports = {
 				}
 			]
 		}),
-		new WorkboxPlugin.GenerateSW({
-			clientsClaim: true,
-			skipWaiting: true
-		  }),
 		new ImageminPlugin({
 			plugins: [
 				imageminMozjpeg({

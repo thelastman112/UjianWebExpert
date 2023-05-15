@@ -21,7 +21,7 @@ export const fav = async () => {
 				<div class="favContent">
 					<div class='favMain'>
 						<div class="favHeader"">
-							<h1 tabindex="0">${rest.name}</h4>
+							<h2 tabindex="0">${rest.name}</h2>
 						</div>
 						<div class="favBody">
 							<h4 tabindex="0">Rating: ${rest.rating}</h4>
@@ -32,20 +32,9 @@ export const fav = async () => {
 				</div>
 			</div>
 			`
-			open()
+			openrest()
 		})
 	})
-	async function open () {
-		const fetchid = document.querySelectorAll('.fullpage')
-		console.log(fetchid)
-		fetchid.forEach((e) => {
-			e.addEventListener('click', () => {
-				const id = e.getAttribute('data-id')
-				localStorage.clear()
-				localStorage.setItem('ids', id)
-			})
-		})
-	}
 	const restitem = document.querySelector('.restitem')
 	const fetchall = await fetch(`${CONFIG.API_URL}/list`, {
 		headers: {
@@ -64,22 +53,21 @@ export const fav = async () => {
 			<div class="favRestContent">
 				<div class='favRestMain'>
 					<div class="favRestHeader"">
-						<h1 tabindex="0">${item.name}</h4>
+						<h2 tabindex="0">${item.name}</h2>
 					</div>
 					<div class="favRestBody">
 						<h4 tabindex="0">Rating: ${item.rating}</h4>
 						<h4 tabindex="0">${item.city}</h4>
 					</div>
 				</div>
-				<button class="fullpageRest" onclick="location.href='restaurantdetail.html?id=${item.id}'" data-id="${item.id}">Full Page</button>
+				<button class="fullpage" onclick="location.href='restaurantdetail.html?id=${item.id}'" data-id="${item.id}">Full Page</button>
 			</div>
 		</div>
 		`
 		openrest()
 	})
 	async function openrest () {
-		const fetchid = document.querySelectorAll('.fullpageRest')
-		console.log(fetchid)
+		const fetchid = document.querySelectorAll('.fullpage')
 		fetchid.forEach((e) => {
 			e.addEventListener('click', () => {
 				const id = e.getAttribute('data-id')
