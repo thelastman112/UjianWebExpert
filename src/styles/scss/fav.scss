@@ -1,7 +1,7 @@
 .favBodyMain {
     margin-top: 0px;
 }
-.favCard {
+.favCard, .favRestCard {
     height: 150px;
     width: 100%;
     display: flex;
@@ -10,26 +10,26 @@
     border-radius: 10px;
     box-shadow: 0px 12px 12px rgb(13 11 11 / 91%);
 }
-.favImg {
+.favImg, .favRestImg {
     height: inherit;
     width: 150px;
     object-fit: cover;
 }
-.favContent {
+.favContent, .favRestContent  {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 10px;
 }
-.favMain {
+.favMain, .favRestMain {
     padding: 16px;
 }
-.favHeader > h1 {
+.favHeader > h1, .favRestHeader > h1{
     font-size: 32px;
     color: #00ADB5;
 }
-.fullpage{
+.fullpage, .fullpageRest{
     background-color: rgba(0,0,0,0);
     font-size: 16px;
     padding: 16px;
@@ -38,7 +38,7 @@
     color: #eee;
     font-weight: bolder;
 }
-.fullpage:hover{
+.fullpage:hover, .fullpageRest:hover{
     cursor: pointer;
     color: #00ADB5;
 }
