@@ -5,8 +5,9 @@
     "background_color": "#222831",
     "theme_color": "#393E46",
     "display": "standalone",
-    "start_url": ".",
-		"crossorigin": "use-credentials",
+    "id" : "./",
+    "start_url": "./",
+	"crossorigin": "use-credentials",
     "icons": [
         {
             "src": "/images/icons/icon.png",
