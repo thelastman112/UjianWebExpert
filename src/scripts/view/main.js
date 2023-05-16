@@ -11,13 +11,14 @@ import { modal } from '../component/modal'
 import { mobileNav } from '../component/mobileNav'
 import { restdetail } from '../component/restdetail'
 import { fav } from '../component/fav'
+import swRegister from '../swRegister'
 
 const main = () => {
-	navigator.serviceWorker.register('sw.bundle.js')
+	swRegister()
+	mobileNav()
 	if (window.location.pathname === '/') {
 		fetch()
 		imageTransition()
-		mobileNav()
 	}
 	if (window.location.pathname === '/restaurantdetail.html') {
 		restdetail()

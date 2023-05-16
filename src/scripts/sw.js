@@ -1,15 +1,27 @@
 import 'regenerator-runtime'
-import cacheHelper from './cacheHelper'
+import CacheHelper from './cacheHelper'
 
-const { assets } = './'
+const assetsToCache = [
+	'./',
+	'./images/icons/icon.png',
+	'./index.html',
+	'./fav.html',
+	'./restaurantdetail.html',
+	'./images/favicon.ico',
+	'./app~src_p.bundle.js',
+	'./app.webmanifest',
+	'./sw.bundle.js'
+]
 self.addEventListener('install', (event) => {
 	console.log('Installing Service Worker ...')
-	event.waitUntil(cacheHelper.cachingAppShell([...assets], './'))
+	event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache]))
 })
+
 self.addEventListener('activate', (event) => {
 	console.log('Activating Service Worker ...')
-	event.waitUntil(cacheHelper.deleteOldCache())
+	event.waitUntil(CacheHelper.deleteOldCache())
 })
+
 self.addEventListener('fetch', (event) => {
-	event.respondWith(cacheHelper.revalidateCache(event.request))
+	event.respondWith(CacheHelper.revalidateCache(event.request))
 })

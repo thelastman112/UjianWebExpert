@@ -1,6 +1,6 @@
 export const mobileNav = () => {
 	const navButton = document.querySelector('#buttonbars')
-	const nav = document.getElementById('nav')
+	const nav = document.querySelector('.nav')
 	navButton.addEventListener('click', () => {
 		if (nav.className === 'nav') {
 			nav.className += ' resp'
