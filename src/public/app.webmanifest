@@ -1,0 +1,18 @@
+{    
+    "name": "Pangananku",
+    "short_name": "Panganku",
+    "description": "Pangananku is a web app that help you to find restaurants in your area",
+    "background_color": "#222831",
+    "theme_color": "#393E46",
+    "display": "standalone",
+    "start_url": ".",
+		"crossorigin": "use-credentials",
+    "icons": [
+        {
+            "src": "/images/icons/icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}
