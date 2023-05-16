@@ -1,4 +1,8 @@
-import CacheHelper from '../scripts/cacheHelper'
+import 'regenerator-runtime'
+import CacheHelper from './cacheHelper'
+import { precacheAndRoute } from 'workbox-precaching'
+
+precacheAndRoute(self.__WB_MANIFEST)
 
 const assetsToCache = [
 	'./',
@@ -7,13 +11,13 @@ const assetsToCache = [
 	'./fav.html',
 	'./restaurantdetail.html',
 	'./images/favicon.ico',
-	'./app~src_p.js',
 	'./app.webmanifest',
 	'./sw.js'
 ]
 self.addEventListener('install', (event) => {
 	console.log('Installing Service Worker ...')
 	event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache]))
+	event.skipWaiting()
 })
 
 self.addEventListener('activate', (event) => {
