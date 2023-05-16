@@ -13,12 +13,18 @@ import { restdetail } from '../component/restdetail'
 import { fav } from '../component/fav'
 
 const main = () => {
-	imageTransition()
-	mobileNav()
-	restdetail()
-	fetch()
-	favmod()
 	navigator.serviceWorker.register('sw.bundle.js')
+	if (window.location.pathname === '/') {
+		fetch()
+		imageTransition()
+		mobileNav()
+	}
+	if (window.location.pathname === '/restaurantdetail.html') {
+		restdetail()
+	}
+	if (window.location.pathname === '/fav.html') {
+		favmod()
+	}
 }
 
 const fetch = async () => {
