@@ -35,7 +35,7 @@ export const restdetail = async () => {
     <div class="divimg">
     <div class="setid" data-id=${id}></div>
       <div class="detailimg">
-        <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_LARGE + pict}" class="lazyload" />
+        <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_LARGE + pict}" class="lazyload" crossorigin="anonymous" />
       </div>
     </div>
       <div class="extradetail">

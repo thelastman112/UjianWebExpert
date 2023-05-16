@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const imageminMozjpeg = require('imagemin-mozjpeg')
 const path = require('path')
 
@@ -10,7 +9,7 @@ module.exports = {
 		app: path.resolve('src/scripts/index.js')
 	},
 	output: {
-		filename: '[name].bundle.js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
 		clean: true
 	},
@@ -74,13 +73,11 @@ module.exports = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{
-					from: path.resolve('src/public/', 'src/sripts/sw.js'),
+					from: path.resolve('src/public/'),
 					to: path.resolve('dist/')
-
 				}
 			]
 		}),
-		new CleanWebpackPlugin(),
 		new ImageminPlugin({
 			plugins: [
 				imageminMozjpeg({

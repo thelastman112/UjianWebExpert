@@ -15,7 +15,7 @@ export const getCardList = async () => {
 		document.querySelector('.cardList').innerHTML +=
 		`
 			<div class="cardMain" tabindex="0">
-			<img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + card.pictureId}" class="lazyload" />
+			<img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + card.pictureId}" class="lazyload" crossorigin="anonymous" />
 				<div class="cardContent">
 					<div class="topCard">
 						<h4 tabindex="0"><i class="fa-sharp fa-solid fa-location-dot"></i>${card.city}</h4>

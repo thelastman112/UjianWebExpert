@@ -98,7 +98,7 @@ export const modal = async () => {
 			${name}
 			`
 		cimg.innerHTML = `
-			<img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + pict}" class="lazyload" />
+			<img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_MEDIUM + pict}" class="lazyload" crossorigin="anonymous" />
 			`
 		cdesc.innerHTML = `
 			${desc}

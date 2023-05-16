@@ -17,7 +17,7 @@ export const fav = async () => {
 			const rest = fetched.restaurant
 			favitem.innerHTML += `
 			<div class="favCard" tabindex="0">
-				<img alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_SMALL + rest.pictureId}" class="favImg lazyload" />
+				<img alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_SMALL + rest.pictureId}" class="favImg lazyload" crossorigin="anonymous" />
 				<div class="favContent">
 					<div class='favMain'>
 						<div class="favHeader"">
@@ -49,7 +49,7 @@ export const fav = async () => {
 	list.forEach(item => {
 		restitem.innerHTML += `
 		<div class="favRestCard" tabindex="0">
-			<img alt="stockRestImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_SMALL + item.pictureId}" class="favRestImg lazyload" />
+			<img alt="stockRestImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_SMALL + item.pictureId}" class="favRestImg lazyload" crossorigin="anonymous" />
 			<div class="favRestContent">
 				<div class='favRestMain'>
 					<div class="favRestHeader"">
