@@ -1,5 +1,5 @@
 import CONFIG from './config'
-const cacheHelper = {
+const CacheHelper = {
 	async cachingAppShell (requests) {
 		const cache = await this._openCache()
 		await cache.addAll(requests)
@@ -7,7 +7,8 @@ const cacheHelper = {
 
 	async deleteOldCache () {
 		const cacheNames = await caches.keys()
-		cacheNames.filter(name => name !== CONFIG.CACHE_NAME).forEach(name => caches.delete(name))
+		cacheNames.filter(name => name !== CONFIG.CACHE_NAME)
+			.forEach(name => caches.delete(name))
 	},
 
 	async revalidateCache (request) {
@@ -41,4 +42,4 @@ const cacheHelper = {
 	}
 }
 
-export default cacheHelper
+export default CacheHelper
