@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
 	entry: {
@@ -78,6 +79,7 @@ module.exports = {
 				}
 			]
 		}),
+		new CleanWebpackPlugin(),
 		new ImageminPlugin({
 			plugins: [
 				imageminMozjpeg({

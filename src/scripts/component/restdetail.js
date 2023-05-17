@@ -21,26 +21,22 @@ export const restdetail = async () => {
 		const headdet = document.querySelector('.detailHeader')
 		const contdet = document.querySelector('.detailContent')
 		const maindrev = document.querySelector('.detailReview')
-		const pict = detailFetch.restaurant.pictureId
-		const name = detailFetch.restaurant.name
-		const city = detailFetch.restaurant.city
-		const desc = detailFetch.restaurant.description
-		const cate = detailFetch.restaurant.categories
-		const addr = detailFetch.restaurant.address
-		const foods = detailFetch.restaurant.menus.foods
-		const drinks = detailFetch.restaurant.menus.drinks
-		const custrev = detailFetch.restaurant.customerReviews
+		const fetched = detailFetch.restaurant
+		const cate = fetched.categories
+		const foods = fetched.menus.foods
+		const drinks = fetched.menus.drinks
+		const custrev = fetched.customerReviews
 		headdet.innerHTML =
     `
     <div class="divimg">
     <div class="setid" data-id=${id}></div>
       <div class="detailimg">
-        <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_LARGE + pict}" class="lazyload" crossorigin="anonymous" />
+        <img id="imgContent" alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_LARGE + fetched.pictureId}" class="lazyload" crossorigin="anonymous" />
       </div>
     </div>
       <div class="extradetail">
-        <h2 class="name underline" tabindex="0">${name}</h3>
-        <h3 tabindex="0"><i class="fa-sharp fa-solid fa-location-dot"></i>${city}</h4>
+        <h2 class="name underline" id="name" tabindex="0">${fetched.name}</h3>
+        <h3 tabindex="0"><i class="fa-sharp fa-solid fa-location-dot"></i>${fetched.city}</h4>
       </div>
     `
 		contdet.innerHTML = `
@@ -48,35 +44,35 @@ export const restdetail = async () => {
       <div>
         <ul>
           <li>
-            <h2 class="underline">Deskripsi</h2>
+            <h2 class="underline" tabindex="0">Deskripsi</h2>
           </li>
           <li>
-            <h3 class="desc">${desc}</h3>
+            <h3 tabindex="0" class="desc">${fetched.description}</h3>
           </li>
         </ul>
         <ul>
           <li>
-            <h2 class="underline">Kategori</h2>
+            <h2 class="underline" tabindex="0">Kategori</h2>
           </li>
           <li class="cate"></li>
         </ul>
         <ul>
           <li>
-            <h2 class="underline">Alamat</h2>
+            <h2 class="underline" tabindex="0">Alamat</h2>
           </li>
           <li>
-            <h3 class="addr">${addr}</h3>
+            <h3 tabindex="0" class="addr">${fetched.address}</h3>
           </li>
         </ul>
         <ul>
           <li>
-            <h2 class="underline">Menu</h2>
+            <h2 class="underline" tabindex="0">Menu</h2>
           </li>
           <li class="menu" >
-          <h3 class="underline">Makanan</h3>
+          <h3 class="underline" tabindex="0">Makanan</h3>
             <ul class="food">
             </ul>
-            <h3 class="underline">Minuman</h3>
+            <h3 class="underline" tabindex="0">Minuman</h3>
             <ul class="drink">
             </ul>
           </li>
@@ -89,17 +85,17 @@ export const restdetail = async () => {
 		const cdrink = document.querySelector('.drink')
 		cate.forEach(e => {
 			ccate.innerHTML += `
-        <h3>${e.name}</h3>  
+        <h3 tabindex="0">${e.name}</h3>  
       `
 		})
 		foods.forEach(e => {
 			cfood.innerHTML += `
-      <li><h4>${e.name}</h4></li>
+      <li><h4 tabindex="0">${e.name}</h4></li>
       `
 		})
 		drinks.forEach(e => {
 			cdrink.innerHTML += `
-      <li><h4>${e.name}</h4></li>
+      <li><h4 tabindex="0">${e.name}</h4></li>
       `
 		})
 		custrev.forEach(e => {
@@ -153,6 +149,50 @@ export const restdetail = async () => {
 		const backButton = document.querySelector('.backButton')
 		backButton.addEventListener('click', () => {
 			localStorage.clear()
+		})
+		const input = document.querySelector('.inputReview')
+		input.innerHTML =
+		`
+			<form action="">
+			<input type="hidden" name="id" id="review-id" value="${id}">
+				<div class="form">
+					<label for="namereview">Name</label>
+					<input class="form-control" id="namereview" placeholder="Name" required="">
+					<label for="review">Review</label>
+					<textarea class="form-textarea" id="review" placeholder="Enter Review" rows="3" required=""></textarea>
+				</div>
+				<button type="submit" class="btnSubmit">Submit</button>
+			</form>
+		`
+		const postReview = async (revData) => {
+			const posted = await fetch(`${CONFIG.API_URL}/review`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(revData)
+			})
+				.then(response => response.json())
+				.catch((err) => {
+					console.error(err)
+					return []
+				})
+		}
+
+		const btnSubmit = document.querySelector('.btnSubmit')
+		btnSubmit.addEventListener('click', e => {
+			const namaform = document.querySelector('#namereview').value
+			const revform = document.querySelector('#review').value
+			const idform = document.querySelector('#review-id').value
+			const revData = {
+				id: idform,
+				name: namaform,
+				review: revform
+			}
+			e.preventDefault()
+			console.log(revData)
+			postReview(revData)
+			window.location.reload()
 		})
 	}
 }

@@ -1,5 +1,5 @@
 @media (max-width: 1200px) {
-  .detailContent, .detailReview {
+  .detailContent, .detailReview, .inputReview {
     width: 80vw;
   }
 }
@@ -58,7 +58,8 @@
     display: none;
   }
   nav > a > h1 {
-    padding: 5px; 
+    padding: 5px;
+    overflow: none; 
   }
   button-bars {
     display: block;
