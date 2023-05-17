@@ -6,7 +6,7 @@ const swRegister = async () => {
 		return
 	}
 
-	const wb = new WorkboxWindow.Workbox('./sw.js')
+	const wb = new WorkboxWindow.Workbox('sw.js')
 
 	try {
 		wb.register()

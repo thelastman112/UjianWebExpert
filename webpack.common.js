@@ -79,7 +79,6 @@ module.exports = {
 				}
 			]
 		}),
-		new CleanWebpackPlugin(),
 		new ImageminPlugin({
 			plugins: [
 				imageminMozjpeg({
