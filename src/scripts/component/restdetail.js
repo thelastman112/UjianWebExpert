@@ -1,6 +1,7 @@
 import 'lazysizes'
 import CONFIG from '../config'
 import database from '../favidb'
+import addReview from './addReview'
 
 export const restdetail = async () => {
 	let id = []
@@ -100,19 +101,19 @@ export const restdetail = async () => {
 		})
 		custrev.forEach(e => {
 			maindrev.innerHTML += `
-      <ul>
-        <li>
-          <div class="revcontent">
-            <div class="revheader">
-              <h4 tabindex="0">${e.name}</h4>
-              <h5 tabindex="0">${e.date}</h5>
-            </div>
-            <div class="revbody">
-              <p tabindex="0">${e.review}</p>
-            </div>
-          </div>
-        </li>
-      </ul>
+		<ul>
+			<li>
+			<div class="revcontent">
+				<div class="revheader">
+				<h4 tabindex="0">${e.name}</h4>
+				<h5 tabindex="0">${e.date}</h5>
+				</div>
+				<div class="revbody">
+				<p tabindex="0">${e.review}</p>
+				</div>
+			</div>
+			</li>
+		</ul>
       `
 		})
 		const favBtn = document.querySelector('.favButton')
@@ -164,21 +165,6 @@ export const restdetail = async () => {
 				<button type="submit" class="btnSubmit">Submit</button>
 			</form>
 		`
-		const postReview = async (revData) => {
-			const posted = await fetch(`${CONFIG.API_URL}/review`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(revData)
-			})
-				.then(response => response.json())
-				.catch((err) => {
-					console.error(err)
-					return []
-				})
-		}
-
 		const btnSubmit = document.querySelector('.btnSubmit')
 		btnSubmit.addEventListener('click', e => {
 			const namaform = document.querySelector('#namereview').value
@@ -189,9 +175,7 @@ export const restdetail = async () => {
 				name: namaform,
 				review: revform
 			}
-			e.preventDefault()
-			console.log(revData)
-			postReview(revData)
+			addReview(revData)
 			window.location.reload()
 		})
 	}

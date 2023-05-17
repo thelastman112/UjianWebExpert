@@ -42,6 +42,7 @@ export const modal = async () => {
           </tbody>
         </table>
       </div>
+	  <div class="addReview"></div>
       <div>
 		<h2 class="revname" tabindex="0">Review</h2>
 		<ul class="review"></ul>
@@ -173,6 +174,19 @@ export const modal = async () => {
 				}
 			})
 		}
+		const input = document.querySelector('.addReview')
+		input.innerHTML = `
+			<form action="">
+				<input type="hidden" name="id" id="review-id" value="${saveid}">
+				<div class="form">
+					<label for="namereview">Name</label>
+					<input class="form-control" id="namereview" placeholder="Name" required="">
+					<label for="review">Review</label>
+					<textarea class="form-textarea" id="review" placeholder="Enter Review" rows="3" required=""></textarea>
+				</div>
+				<button type="submit" class="btnSubmit">Submit</button>
+			</form>
+		`
 		close.addEventListener('click', () => {
 			modal.style.display = 'none'
 			ccate.innerHTML = ''

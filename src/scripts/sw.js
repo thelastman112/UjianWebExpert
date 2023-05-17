@@ -50,10 +50,10 @@ registerRoute(
 	new CacheFirst({
 		cacheName: 'my-image-cache',
 		plugins: [
-			// Don't cache more than 50 items, and expire them after 30 days
+			// Don't cache more than 200 items, and expire them after 30 days
 			new ExpirationPlugin({
 				maxAgeSeconds: 60 * 60 * 24 * 30,
-				maxEntries: 50
+				maxEntries: 200
 			})
 		]
 	})
