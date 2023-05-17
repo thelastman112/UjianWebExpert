@@ -10,13 +10,15 @@ import {
 import { ExpirationPlugin } from 'workbox-expiration'
 
 setCacheNameDetails({
-	prefix: 'resto-app',
-	suffix: 'v1',
+	prefix: 'restaurant-web-app',
+	suffix: '1.0.0',
 	precache: 'precache',
 	runtime: 'runtime'
 })
 
-precacheAndRoute(self.__WB_MANIFEST)
+precacheAndRoute([self.__WB_MANIFEST], {
+	ignoreURLParametersMatching: [/.*/]
+})
 
 // Cache page navigations (html) with a Network First strategy
 registerRoute(
@@ -48,7 +50,7 @@ registerRoute(
 registerRoute(
 	({ request }) => request.destination === 'image',
 	new CacheFirst({
-		cacheName: 'my-image-cache',
+		cacheName: 'image-cache',
 		plugins: [
 			// Don't cache more than 200 items, and expire them after 30 days
 			new ExpirationPlugin({
@@ -63,7 +65,7 @@ registerRoute(
 registerRoute(
 	/https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/font-awesome\/5.15.3\/css\/all.css/,
 	new CacheFirst({
-		cacheName: 'my-font-awesome-css-cache'
+		cacheName: 'facss-cache'
 	})
 )
 
@@ -73,7 +75,7 @@ registerRoute(
 		url.origin === 'https://fonts.googleapis.com' ||
     url.origin === 'https://fonts.gstatic.com',
 	new StaleWhileRevalidate({
-		cacheName: 'my-google-fonts-cache',
+		cacheName: 'fonts-cache',
 		// Don't cache more than 50 items
 		plugins: [new ExpirationPlugin({ maxEntries: 50 })]
 	})
@@ -88,7 +90,7 @@ registerRoute(
 	// Use a Stale While Revalidate caching strategy
 	new StaleWhileRevalidate({
 		// Put all cached files in a cache named 'assets'
-		cacheName: 'my-assets-cache'
+		cacheName: 'assets-cache'
 	})
 )
 

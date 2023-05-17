@@ -12,19 +12,28 @@ import { mobileNav } from '../component/mobileNav'
 import { restdetail } from '../component/restdetail'
 import { fav } from '../component/fav'
 import swRegister from '../swRegister'
+import Loading from '../component/loading'
 
 const main = () => {
-	swRegister()
-	mobileNav()
-	if (window.location.pathname === '/') {
-		fetch()
-		imageTransition()
-	}
-	if (window.location.pathname === '/restaurantdetail.html') {
-		restdetail()
-	}
-	if (window.location.pathname === '/fav.html') {
-		favmod()
+	if (document.readyState !== 'complete') {
+		const loadingSpin = document.createElement('loader')
+		document.body.appendChild(loadingSpin)
+		new Loading()
+
+		swRegister()
+		mobileNav()
+		if (window.location.pathname === '/') {
+			fetch()
+			imageTransition()
+		}
+		if (window.location.pathname === '/restaurantdetail.html') {
+			restdetail()
+		}
+		if (window.location.pathname === '/fav.html') {
+			favmod()
+		}
+	} else {
+		window.Location.reload()
 	}
 }
 
