@@ -56,7 +56,6 @@ const assetsToCache = [
 	'./app.webmanifest',
 	'./sw.js'
 ]
-// console.log(self)
 self.addEventListener('install', (event) => {
 	console.log('Installing Service Worker ...')
 	event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache]))
