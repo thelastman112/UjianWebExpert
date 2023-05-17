@@ -18,7 +18,6 @@ const main = () => {
 	if (document.readyState !== 'complete') {
 		const loadingSpin = document.createElement('loader')
 		document.body.appendChild(loadingSpin)
-		new Loading()
 
 		swRegister()
 		mobileNav()

@@ -9,7 +9,7 @@
     "serve": "http-server dist --port 9000",
     "build-serve": "npm run build && npm run serve",
     "test": "karma start",
-    "lint": "eslieslint ./src"
+    "lint": "eslint ./src"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
