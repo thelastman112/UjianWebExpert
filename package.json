@@ -9,8 +9,13 @@
     "serve": "http-server dist --port 9000",
     "build-serve": "npm run build && npm run serve",
     "test": "karma start",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "e2e": "npx codeceptjs run --steps"
   },
+  "eslintIgnore": [
+    "node_modules",
+    "dist"
+  ],
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
   "license": "ISC",
@@ -51,6 +56,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.3.0",
     "idb": "^7.1.1",
+    "jasmine": "^5.0.0",
     "jquery": "^3.6.4",
     "jsdom": "^21.1.1",
     "lazysizes": "^5.3.2",

@@ -8,6 +8,13 @@ export const imageTransition = () => {
 		'images/heros/hero-image_4.jpg'
 	]
 
+	const small = window.matchMedia('(max-width:375px)').matches
+	if(small){
+		heroImage = [
+			
+		]
+	}
+
 	let i = 1
 	setInterval(() => {
 		imageChange.setAttribute('src', heroImage[i % heroImage.length])
