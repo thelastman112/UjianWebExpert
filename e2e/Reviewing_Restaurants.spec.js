@@ -15,7 +15,7 @@ Scenario('Reviewing a restaurant', ({ I }) => {
 	I.fillField('#namereview', name)
 	I.fillField('#review', review)
 	I.click('button[type=submit]')
-	I.wait(5)
+	I.wait(2)
 	I.see(name, '#reviewnama:first-child')
 	I.see(review, '#reviewisi:first-child')
 })
