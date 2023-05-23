@@ -8,8 +8,7 @@ export const imageTransition = () => {
 		'images/heros/hero-image_4-L.jpg'
 	]
 
-	const small = window.matchMedia('(max-width:375px)').matches
-	if(small){
+	if(window.matchMedia('(max-width: 375px)').matches){
 		heroImage = [
 			'images/heros/hero-image_1-S.jpg',
 			'images/heros/hero-image_2-S.jpg',
@@ -18,8 +17,7 @@ export const imageTransition = () => {
 		]
 	}
 
-	const medium = window.matchMedia('(max-width:767px)').matches
-	if(medium){
+	if(window.matchMedia('(max-width: 767px) and (min-width: 376px)').matches){
 		heroImage = [
 			'images/heros/hero-image_1-M.jpg',
 			'images/heros/hero-image_2-M.jpg',
