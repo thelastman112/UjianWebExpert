@@ -1,6 +1,7 @@
 import CONFIG from '../config'
 
 const addReview = async (revData) => {
+	console.log(revData)
 	const posted = await fetch(`${CONFIG.API_URL}/review`, {
 		method: 'POST',
 		headers: {

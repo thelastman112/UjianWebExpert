@@ -106,11 +106,11 @@ export const restdetail = async () => {
 			<li>
 			<div class="revcontent">
 				<div class="revheader">
-				<h4 tabindex="0">${e.name}</h4>
-				<h5 tabindex="0">${e.date}</h5>
+				<h4 id="reviewnama" tabindex="0">${e.name}</h4>
+				<h5 id="reviewtgl"  tabindex="0">${e.date}</h5>
 				</div>
 				<div class="revbody">
-				<p tabindex="0">${e.review}</p>
+				<p id="reviewisi" tabindex="0">${e.review}</p>
 				</div>
 			</div>
 			</li>
