@@ -13,16 +13,15 @@ import { restdetail } from '../component/restdetail'
 import { fav } from '../component/fav'
 import swRegister from '../swRegister'
 import Loading from '../component/loading'
-import { testing } from '../testing'
 
 const main = () => {
 	if (document.readyState !== 'complete') {
-		const loadingSpin = document.createElement('loader')
-		document.body.appendChild(loadingSpin)
+		// const loadingSpin = document.createElement('loader')
+		// document.body.appendChild(loadingSpin)
+		// Loading(loadingSpin)
 
 		swRegister()
 		mobileNav()
-		testing()
 		if (window.location.pathname === '/') {
 			fetch()
 			imageTransition()

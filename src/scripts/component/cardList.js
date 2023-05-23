@@ -6,11 +6,10 @@ export const getCardList = async () => {
 			Accept: 'application/json'
 		}
 	})
-		.then((response) => response.json())
+		.then(response => response.json())
 		.catch(() => {
 			return []
 		})
-	console.log(cardList)
 	const mapCard = cardList.restaurants
 	mapCard.forEach(card => {
 		document.querySelector('.cardList').innerHTML +=

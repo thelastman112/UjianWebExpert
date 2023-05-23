@@ -15,6 +15,7 @@ export const fav = async () => {
 					return []
 				})
 			const rest = fetched.restaurant
+			console.log(rest.pictureId)
 			favitem.innerHTML += `
 			<div class="favCard" tabindex="0">
 				<img alt="stockImage" src="images/noimg.jpg" data-src="${CONFIG.URL_IMAGE_SMALL + rest.pictureId}" class="favImg lazyload" crossorigin="anonymous" />
@@ -28,7 +29,7 @@ export const fav = async () => {
 							<h4 tabindex="0">${rest.city}</h4>
 						</div>
 					</div>
-					<button class="fullpage" onclick="location.href='restaurantdetail.html?id=${rest.id}'" data-id="${rest.id}">Full Page</button>
+					<button class="fullpage" id="fullpage" onclick="location.href='restaurantdetail.html?id=${rest.id}'" data-id="${rest.id}">Full Page</button>
 				</div>
 			</div>
 			`

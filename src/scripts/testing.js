@@ -1,13 +1,6 @@
 import CONFIG from './config'
+import favFunc from './util/favFunc'
 
 export const testing = async () => {
-	const getFetch = await fetch(`${CONFIG.API_URL}/list`, {
-		headers: {
-			Accept: 'application/json'
-		}
-	})
-		.then((response) => console.log(response))
-		.catch(() => {
-			return []
-		})
+
 }

@@ -2,6 +2,7 @@ import 'lazysizes'
 import CONFIG from '../config'
 import database from '../favidb'
 import addReview from './addReview'
+import favFunc from '../util/favFunc'
 
 export const restdetail = async () => {
 	let id = []
@@ -123,18 +124,10 @@ export const restdetail = async () => {
 		favBtn.addEventListener('click', () => {
 			if (favBtn.className === 'favButton') {
 				favBtn.className = 'redfavButton'
-				database.addFavoriteRestaurant(data).then(() => {
-					console.log('add success')
-				}).catch(() => {
-					console.log('add failed')
-				})
+				favFunc.favadd(data)
 			} else {
 				favBtn.className = 'favButton'
-				database.removeFavoriteRestaurant(data).then(() => {
-					console.log('remove success')
-				}).catch(() => {
-					console.log('remove failed')
-				})
+				favFunc.favrem(data)
 			}
 		})
 		autofav(id)

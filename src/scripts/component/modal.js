@@ -1,6 +1,7 @@
 import 'lazysizes'
 import CONFIG from '../config'
 import database from '../favidb'
+import favFunc from '../util/favFunc'
 export const modal = async () => {
 	const modalStructure =
   `
@@ -145,28 +146,18 @@ export const modal = async () => {
 		const data = {
 			id: saveid
 		}
-		console.log(saveid)
 		favmodalbtn.addEventListener('click', () => {
 			if (favmodalbtn.className === 'favmodal') {
 				favmodalbtn.className = 'redfavmodal'
-				database.addFavoriteRestaurant(data).then(() => {
-					console.log('add success')
-				}).catch(() => {
-					console.log('add failed')
-				})
+				favFunc.favadd(data)
 			} else {
 				favmodalbtn.className = 'favmodal'
-				database.removeFavoriteRestaurant(data).then(() => {
-					console.log('remove success')
-				}).catch(() => {
-					console.log('remove failed')
-				})
+				favFunc.favrem(data)
 			}
 		})
 		autofav(saveid)
 		async function autofav (saveid) {
 			database.getFavoriteRestaurant(saveid).then((e) => {
-				console.log(e)
 				if (e !== undefined) {
 					favmodalbtn.className = 'redfavmodal'
 				} else {
