@@ -10,6 +10,7 @@ export const getCardList = async () => {
 		.catch(() => {
 			return []
 		})
+	console.log(cardList)
 	const mapCard = cardList.restaurants
 	mapCard.forEach(card => {
 		document.querySelector('.cardList').innerHTML +=
