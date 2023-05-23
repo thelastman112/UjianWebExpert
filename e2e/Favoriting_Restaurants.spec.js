@@ -10,6 +10,6 @@ Scenario('Adding a restaurant to favorites', ({ I }) => {
 	I.click('.favRestCard:last-child .fullpage')
 	I.click('.favButton')
 	I.click('.backButton')
-	I.wait(5)
+	I.wait(2)
 	I.seeNumberOfElements('.favCard', 1)
 })
