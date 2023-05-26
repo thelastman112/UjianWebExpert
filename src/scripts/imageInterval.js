@@ -2,27 +2,27 @@ export const imageTransition = () => {
 	const imageChange = document.querySelector('.main-image')
 
 	let heroImage = [
-		'images/heros/hero-image_1-L.jpg',
-		'images/heros/hero-image_2-L.jpg',
-		'images/heros/hero-image_3-L.jpg',
-		'images/heros/hero-image_4-L.jpg'
+		'images/heros_resp/hero-image_1-L.jpg',
+		'images/heros_resp/hero-image_2-L.jpg',
+		'images/heros_resp/hero-image_3-L.jpg',
+		'images/heros_resp/hero-image_4-L.jpg'
 	]
 
 	if (window.matchMedia('(max-width: 360px)').matches) {
 		heroImage = [
-			'images/heros/hero-image_1-S.jpg',
-			'images/heros/hero-image_2-S.jpg',
-			'images/heros/hero-image_3-S.jpg',
-			'images/heros/hero-image_4-S.jpg'
+			'images/heros_resp/hero-image_1-S.jpg',
+			'images/heros_resp/hero-image_2-S.jpg',
+			'images/heros_resp/hero-image_3-S.jpg',
+			'images/heros_resp/hero-image_4-S.jpg'
 		]
 	}
 
 	if (window.matchMedia('(max-width: 720px) and (min-width: 361px)').matches) {
 		heroImage = [
-			'images/heros/hero-image_1-M.jpg',
-			'images/heros/hero-image_2-M.jpg',
-			'images/heros/hero-image_3-M.jpg',
-			'images/heros/hero-image_4-M.jpg'
+			'images/heros_resp/hero-image_1-M.jpg',
+			'images/heros_resp/hero-image_2-M.jpg',
+			'images/heros_resp/hero-image_3-M.jpg',
+			'images/heros_resp/hero-image_4-M.jpg'
 		]
 	}
 
