@@ -75,11 +75,13 @@ module.exports = {
 			patterns: [
 				{
 					from: path.resolve('src/public/'),
-					to: path.resolve('dist/')
+					to: path.resolve('dist/'),
+					globOptions: {
+						ignore: ['**/images/heros/**']
+					}
 				}
 			]
 		}),
-		new BundleAnalyzerPlugin(),
 		new ImageminPlugin({
 			plugins: [
 				imageminMozjpeg({
@@ -87,6 +89,11 @@ module.exports = {
 					progressive: true
 				})
 			]
+		}),
+		new BundleAnalyzerPlugin({
+			reportFilename: 'report.html',
+			analyzerMode: 'static',
+			openAnalyzer: false
 		})
 	]
 }
