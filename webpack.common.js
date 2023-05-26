@@ -79,6 +79,7 @@ module.exports = {
 				}
 			]
 		}),
+		new BundleAnalyzerPlugin(),
 		new ImageminPlugin({
 			plugins: [
 				imageminMozjpeg({
